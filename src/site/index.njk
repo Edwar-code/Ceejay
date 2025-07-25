@@ -3,90 +3,87 @@ layout: layouts/base.njk
 ---
 
 <style>
-  /* --- ELITE UPGRADE STYLES --- */
+  /* --- FINAL POLISHED STYLES --- */
 
-  /* --- 1. "Connect & Conquer" Social Cards --- */
-  .social-section-elite {
-    background: #111; /* Darker, more premium background */
+  /* --- 1. "Reach out via..." Social Cards (LIGHT THEME) --- */
+  .social-section-final {
+    background: #fff; /* Restored light theme */
+    padding-top: 40px; /* Add some space at the top */
   }
-  .social-grid-elite {
+  .social-grid-final {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem; /* More spacing */
+    gap: 2rem;
     padding-top: 20px;
   }
-  .social-card-elite {
+  .social-card-final {
     position: relative;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.05); /* Glassmorphism base */
+    background: #ffffff; /* Crisp white background */
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid #e5e5e5; /* Subtle border */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft shadow to make it float */
     overflow: hidden;
     text-decoration: none;
-    color: white;
-    transition: transform 0.3s ease;
+    color: #111; /* Dark text for readability */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
   }
-  .social-card-elite:hover {
-    transform: translateY(-10px);
+  .social-card-final:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
   }
   /* The animated gradient border */
-  .social-card-elite::before {
+  .social-card-final::before {
     content: '';
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    inset: 0;
     border-radius: 20px;
-    background: conic-gradient(
-      from 180deg at 50% 50%,
-      #c700ff, #007bff, #00ff88, #c700ff
-    );
+    padding: 2px; /* The thickness of the border */
+    background: conic-gradient(from 180deg at 50% 50%, #c700ff, #007bff, #00ff88, #c700ff);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     opacity: 0;
     transition: opacity 0.4s ease;
     animation: rotateGradient 4s linear infinite paused;
   }
-  .social-card-elite:hover::before {
+  .social-card-final:hover::before {
     opacity: 1;
     animation-play-state: running;
-  }
-  /* The content that sits above the border */
-  .social-card-elite .card-content {
-    position: relative;
-    z-index: 2;
-    background: #1a1a1a; /* Dark interior to make border pop */
-    padding: 25px;
-    border-radius: 16px;
-    height: 100%;
-    box-sizing: border-box;
   }
   @keyframes rotateGradient {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
-  .social-card-elite .detail img {
+  .social-card-final .card-content {
+    padding: 30px;
+  }
+  .social-card-final .detail img {
     width: 40px;
     height: 40px;
     margin-right: 20px;
-    filter: invert(1);
+    /* filter: invert(1) is REMOVED to show original icon colors */
   }
-  .social-card-elite h4 {
+  .social-card-final h4 {
     margin: 0 0 8px 0;
     font-size: 1.3em;
     font-weight: 600;
+    color: #111;
   }
-  .social-card-elite p {
+  .social-card-final p {
     margin: 0;
-    color: #bbb;
+    color: #555; /* Slightly softer text color */
     font-size: 0.95em;
     line-height: 1.5;
   }
 
-  /* --- 2. "Let's Build Together" Contact Form --- */
+  /* --- 2. "Let's Build Together" Contact Form (DARK THEME) --- */
   .contact-section-elite {
     background: #0d0d0d;
     color: white;
-    padding-bottom: 50px; /* More space at the bottom */
+    padding: 80px 0;
   }
   .contact-section-elite .content {
     max-width: 700px;
@@ -94,7 +91,7 @@ layout: layouts/base.njk
     text-align: center;
   }
   .contact-section-elite h3 {
-    font-size: 3em; /* More impactful title */
+    font-size: 3em;
     background: -webkit-linear-gradient(45deg, #007bff, #c700ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -272,18 +269,18 @@ layout: layouts/base.njk
           </div>
         </div>
         <svg class="wave wave-bottom" width="4323" height="700" viewBox="0 0 4323 700" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4323 34.5566C4323 252.392 4225.5 548.808 3509.5 548.808C3135 548.808 3153.5 368.696 2564.5 393C2119.77 411.351 1139.99 506.534 733.498 548.808C327.002 591.082 0 561.739 0 561.739V700H4323C4323 700 4323 -183.279 4323 34.5566Z" fill="#111"/>
+          <path d="M4323 34.5566C4323 252.392 4225.5 548.808 3509.5 548.808C3135 548.808 3153.5 368.696 2564.5 393C2119.77 411.351 1139.99 506.534 733.498 548.808C327.002 591.082 0 561.739 0 561.739V700H4323C4323 700 4323 -183.279 4323 34.5566Z" fill="#fff"/>
         </svg>
       </div>
       
-      <!-- ELITE 'Connect & Conquer' Section -->
-      <div class="section social-section-elite">
+      <!-- FINAL 'Reach out via...' Section (LIGHT THEME) -->
+      <div class="section social-section-final">
         <div class="main-content-wrapper social">
           <div class="content">
-            <h3>Connect & Conquer</h3>
+            <h3>Reach out via...</h3>
             <p>Join the community. Follow my journey across these platforms for insights, analysis, and opportunities.</p>
-            <div class="social-grid-elite">
-                <a href="https://t.me/ceejaytrades_ke" target="_blank" class="social-card-elite">
+            <div class="social-grid-final">
+                <a href="https://t.me/ceejaytrades_ke" target="_blank" class="social-card-final">
                     <div class="card-content">
                         <div class="flexing-like-a-douche">
                             <div class="detail"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg"/></div>
@@ -294,7 +291,7 @@ layout: layouts/base.njk
                         </div>
                     </div>
                 </a>
-                <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank" class="social-card-elite">
+                <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank" class="social-card-final">
                     <div class="card-content">
                         <div class="flexing-like-a-douche">
                             <div class="detail"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg"/></div>
@@ -305,10 +302,10 @@ layout: layouts/base.njk
                         </div>
                     </div>
                 </a>
-                <a href="#" target="_blank" class="social-card-elite">
+                <a href="#" target="_blank" class="social-card-final">
                     <div class="card-content">
                         <div class="flexing-like-a-douche">
-                            <div class="detail"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg"/></div>
+                            <div class="detail"><img src="https.cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg"/></div>
                             <div class="wrapper">
                                 <h4>TikTok</h4>
                                 <p>Quick tips, market analysis, and trading education.</p>
@@ -316,7 +313,7 @@ layout: layouts/base.njk
                         </div>
                     </div>
                 </a>
-                <a href="https://github.com/Edwar-code/Portfolio" target="_blank" class="social-card-elite">
+                <a href="https://github.com/Edwar-code/Portfolio" target="_blank" class="social-card-final">
                     <div class="card-content">
                         <div class="flexing-like-a-douche">
                             <div class="detail"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/github.svg"/></div>
@@ -332,11 +329,8 @@ layout: layouts/base.njk
         </div>
       </div>
 
-      <!-- ELITE Contact Form Section -->
+      <!-- FINAL Contact Form Section (DARK THEME) -->
       <div class="section contact-section-elite" data-theme-color="rgb(13, 13, 13)">
-         <svg class="wave wave-top" width="4323" height="250" viewBox="0 0 4323 250" fill="none" xmlns="http://www.w3.org/2000/svg" style="background-color: #111;">
-          <path d="M4323 100.909C4091.5 149.475 3848.5 63.0061 3412 47.3859C2750.36 23.7092 2638.5 209.134 2124.5 245.953C1683.02 277.578 1127.5 114.203 721 90.6202C314.504 67.0372 0 121.582 0 121.582V5.78165e-06H4323C4323 5.78165e-06 4323 222.431 4323 100.909Z" fill="#0d0d0d"/>
-        </svg>
         <div class="main-content-wrapper">
           <div class="content">
             <h3>Let's Build Together</h3>
