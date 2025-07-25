@@ -2,6 +2,44 @@
 layout: layouts/base.njk
 ---
 
+<style>
+  /* Basic styles for the new contact form */
+  .contact-form-section .content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .contact-form-section input[type="text"],
+  .contact-form-section input[type="email"],
+  .contact-form-section textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #f4f4f4;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+  }
+  .contact-form-section textarea {
+    height: 150px;
+    resize: vertical;
+  }
+  .contact-form-section button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+  }
+  .contact-form-section button:hover {
+    background-color: #0056b3;
+  }
+</style>
+
     <div class="papa-wrapper">
       <div class="section big-hero-six" data-theme-color="rgb(255, 255, 255)">
         <div class="background">
@@ -12,7 +50,8 @@ layout: layouts/base.njk
           <div class="content">
             <p>Welcome, my name is</p>
             <h1>Ceejay<span id="unecessary-part-of-name">FX</span></h1>
-            <p>I am a student at The University of Nairobi and a fulltime Forex & Synthetics Trader, engineering strategies for market success.</p>
+            <p>I am a student at The University of Nairobi,
+            Fulltime Forex & Synthetics Trader, engineering strategies for market success.</p>
           </div>
         </div>
         <div class="custom-wave"></div>
@@ -176,7 +215,7 @@ layout: layouts/base.njk
             <li class="telegram">
               <div class="flexing-like-a-douche">
                 <div class="detail">
-                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg"/>
+                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" style="margin-right: 20px;"/>
                 </div>
                 <div class="wrapper">
                   <h4>Telegram</h4>
@@ -188,7 +227,7 @@ layout: layouts/base.njk
             <li class="instagram">
               <div class="flexing-like-a-douche">
                 <div class="detail">
-                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg"/>
+                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" style="margin-right: 20px;"/>
                 </div>
                 <div class="wrapper">
                   <h4>Instagram</h4>
@@ -200,7 +239,7 @@ layout: layouts/base.njk
             <li class="tiktok">
               <div class="flexing-like-a-douche">
                 <div class="detail">
-                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg"/>
+                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" style="margin-right: 20px;"/>
                 </div>
                 <div class="wrapper">
                   <h4>TikTok</h4>
@@ -212,7 +251,7 @@ layout: layouts/base.njk
             <li class="github">
               <div class="flexing-like-a-douche">
                 <div class="detail">
-                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/github.svg"/>
+                  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/github.svg" style="margin-right: 20px;"/>
                 </div>
                 <div class="wrapper">
                   <h4>GitHub</h4>
@@ -225,10 +264,38 @@ layout: layouts/base.njk
         </div>
       </div>
 
+      <!-- New Contact Form Section -->
+      <div class="section contact-form-section" data-theme-color="rgb(248, 250, 251)">
+         <svg class="wave wave-top" width="4323" height="250" viewBox="0 0 4323 250" fill="none" xmlns="http://www.w3.org/2000/svg" style="background-color: white;">
+          <path d="M4323 100.909C4091.5 149.475 3848.5 63.0061 3412 47.3859C2750.36 23.7092 2638.5 209.134 2124.5 245.953C1683.02 277.578 1127.5 114.203 721 90.6202C314.504 67.0372 0 121.582 0 121.582V5.78165e-06H4323C4323 5.78165e-06 4323 222.431 4323 100.909Z" fill="white"/>
+        </svg>
+        <div class="main-content-wrapper">
+          <div class="content">
+            <h3>Get in Touch</h3>
+            <p>Have a question or want to work together? Send me a message below.</p>
+            <form action="https://formspree.io/f/YOUR_UNIQUE_CODE" method="POST">
+              <label>
+                Your Name:
+                <input type="text" name="name" required>
+              </label>
+              <label>
+                Your Email:
+                <input type="email" name="email" required>
+              </label>
+              <label>
+                Your Message:
+                <textarea name="message" required></textarea>
+              </label>
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <div class="main-content-wrapper footer">
           <p>Copyleft © [what-year-is-this]</p>
-          <p>This website is built on discipline and strategy. The code is <a href="https://github.com/Edwar-code/Portfolio" target="_blank">open sourced</a>.</p>
-          <p>Disclaimer: Trading contains substantial risk and is not for every investor.</p>
+          <p>Traders are built on discipline and strategy. The code is <a href="https://github.com/Edwar-code/Portfolio" target="_blank">open sourced</a>.</p>
+          <p>Disclaimer:All my entries need Risk Management</p>
       </div>
     </div>
     <img src="/assets/not-how-this-works.png" id="easterNope" class="easter not-how-this-works" />
