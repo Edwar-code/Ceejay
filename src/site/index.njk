@@ -5,77 +5,37 @@ layout: layouts/base.njk
 <style>
   /* --- FINAL POLISHED STYLES --- */
 
-  /* --- 1. "Reach out via..." Social Cards (LIGHT THEME) --- */
-  .social-section-final {
-    background: #fff; /* Restored light theme */
-    padding-top: 40px; /* Add some space at the top */
+  /* --- CUSTOM FOOTER STYLES --- */
+  .custom-footer {
+    background-color: #0d0d0d;
+    color: #aaa;
+    padding: 60px 20px 30px 20px;
+    text-align: center;
   }
-  .social-grid-final {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    padding-top: 20px;
+  .custom-footer h3 {
+    font-size: 2.5em;
+    color: white;
+    margin-bottom: 20px;
   }
-  .social-card-final {
-    position: relative;
-    background: #ffffff; /* Crisp white background */
-    border-radius: 20px;
-    border: 1px solid #e5e5e5; /* Subtle border */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft shadow to make it float */
-    overflow: hidden;
-    text-decoration: none;
-    color: #111; /* Dark text for readability */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: block;
+  .footer-social-icons {
+    margin-bottom: 40px;
   }
-  .social-card-final:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  .footer-social-icons a {
+    display: inline-block;
+    margin: 0 15px;
+    transition: transform 0.3s ease;
   }
-  /* The animated gradient border */
-  .social-card-final::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    padding: 2px; /* The thickness of the border */
-    background: conic-gradient(from 180deg at 50% 50%, #c700ff, #007bff, #00ff88, #c700ff);
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    animation: rotateGradient 4s linear infinite paused;
+  .footer-social-icons a:hover {
+    transform: scale(1.2);
   }
-  .social-card-final:hover::before {
-    opacity: 1;
-    animation-play-state: running;
+  .footer-social-icons img {
+    width: 32px;
+    height: 32px;
+    filter: invert(0.8); /* Makes icons a light grey */
   }
-  @keyframes rotateGradient {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  .social-card-final .card-content {
-    padding: 30px;
-  }
-  .social-card-final .detail img {
-    width: 40px;
-    height: 40px;
-    margin-right: 20px;
-  }
-  .social-card-final h4 {
-    margin: 0 0 8px 0;
-    font-size: 1.3em;
-    font-weight: 600;
-    color: #111;
-  }
-  .social-card-final p {
+  .custom-footer p {
+    font-size: 0.9em;
     margin: 0;
-    color: #555;
-    font-size: 0.95em;
-    line-height: 1.5;
   }
 
 </style>
@@ -161,9 +121,31 @@ layout: layouts/base.njk
         </svg>
       </div>
 
+      <!-- RESTORED & FINAL "In a previous life" + "Mentors" sections -->
+      <div class="section miscelanious-is-a-funny-word">
+        <div class="main-content-wrapper in-the-year-2000" data-theme-color="rgb(255, 255, 255)">
+          <div class="content">
+            <h3>In a previous life...</h3>
+            <p>Before dedicating myself to the markets, I pursued other passions that honed the skills I use every day.</p>
+            <ul>
+              <li class="athlete">
+                <div class="flexing-like-a-douche">
+                  <div class="detail">
+                    <img src="https://cdn.jsdelivr.net/npm/@tabler/icons-svg@latest/icons/run.svg" style="width:40px; height:40px; filter: invert(0.4);" alt="Athlete Icon"/>
+                  </div>
+                  <div class="wrapper">
+                    <h4>Athlete</h4>
+                    <p>The explosive discipline of a 100m sprinter taught me about peak performance and mental focus.</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <div class="main-content-wrapper people-id-like-to-meet">
           <div class="content">
-            <h3>Inspirations</h3>
+            <h3>Mentors & Inspirations</h3>
             <p>As a trader and a student, I'm constantly learning from those who've mastered their craft. I've been fortunate to connect with some incredible minds, but the journey of learning never stops. Here are a few inspirations.</p>
             <ul>
                 <li class="checked"><span class="tick"></span><a href="#">Mkoreanwwn</a></li>
@@ -175,65 +157,18 @@ layout: layouts/base.njk
         </div>
       </div>
       
-      <!-- FINAL 'Reach out via...' Section (LIGHT THEME) -->
-      <div class="section social-section-final">
-        <div class="main-content-wrapper social">
-          <div class="content">
-            <h3>Reach out via...</h3>
-            <p>Join the community. Follow my journey across these platforms for insights, analysis, and opportunities.</p>
-            <div class="social-grid-final">
-                <a href="https://t.me/ceejaytrades_ke" target="_blank" class="social-card-final">
-                    <div class="card-content">
-                        <div class="flexing-like-a-douche">
-                            <div class="detail"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg"/></div>
-                            <div class="wrapper">
-                                <h4>Telegram</h4>
-                                <p>Direct message for exclusive deals & business. Join the free channel for my high-probability trade setups.</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank" class="social-card-final">
-                    <div class="card-content">
-                        <div class="flexing-like-a-douche">
-                            <div class="detail"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg"/></div>
-                            <div class="wrapper">
-                                <h4>Instagram</h4>
-                                <p>Daily trading lifestyle and behind-the-scenes content.</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" target="_blank" class="social-card-final">
-                    <div class="card-content">
-                        <div class="flexing-like-a-douche">
-                            <div class="detail"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg"/></div>
-                            <div class="wrapper">
-                                <h4>TikTok</h4>
-                                <p>Quick tips, market analysis, and trading education.</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/Edwar-code/Portfolio" target="_blank" class="social-card-final">
-                    <div class="card-content">
-                        <div class="flexing-like-a-douche">
-                            <div class="detail"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/github.svg"/></div>
-                            <div class="wrapper">
-                                <h4>GitHub</h4>
-                                <p>The open-source code behind my trading tools & this site.</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-          </div>
+      <!-- NEW CUSTOM FOOTER -->
+      <div class="custom-footer">
+        <h3>Let's Connect</h3>
+        <div class="footer-social-icons">
+          <a href="https://t.me/ceejaytrades_ke" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
+          <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
+          <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
+          <a href="https://github.com/Edwar-code/Portfolio" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/github.svg" alt="GitHub"/></a>
         </div>
+        <p>Copyleft © [what-year-is-this]</p>
       </div>
 
-      <div class="main-content-wrapper footer">
-          <p>Copyleft © [what-year-is-this]</p>
-      </div>
     </div>
     <img src="/assets/not-how-this-works.png" id="easterNope" class="easter not-how-this-works" />
   </div>
