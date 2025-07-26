@@ -5,56 +5,29 @@ layout: layouts/base.njk
 <style>
   /* --- FINAL POLISHED STYLES --- */
 
-  /* --- ELITE FOOTER STYLES (COMPACT VERSION) --- */
-  .footer-elite {
-    background: linear-gradient(180deg, #111111 0%, #000000 100%);
-    color: #aaa;
-    padding: 50px 20px 30px 20px; /* Reduced padding */
+  /* --- COMPACT FOOTER STYLES --- */
+  .footer-compact {
+    background-color: #111;
+    color: #666;
+    padding: 25px 20px; /* Minimal padding for a short height */
     text-align: center;
-    position: relative;
   }
-  .footer-title {
-    font-size: 2.2em; /* Reduced font size */
-    font-weight: bold;
-    margin: 0 0 10px 0; /* Reduced margin */
-    background: -webkit-linear-gradient(45deg, #007bff, #c700ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .footer-socials-compact a {
+    display: inline-block;
+    margin: 0 12px;
   }
-  .footer-tagline {
-    font-size: 1.1em; /* Reduced font size */
-    color: #bbb;
-    margin-bottom: 30px; /* Reduced margin */
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+  .footer-socials-compact img {
+    width: 24px; /* Small, clean icons */
+    height: 24px;
+    filter: invert(0.5);
+    transition: filter 0.3s ease;
   }
-  .footer-socials-elite a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 44px; /* Reduced size */
-    height: 44px; /* Reduced size */
-    background-color: #222;
-    border-radius: 50%;
-    margin: 0 10px; /* Reduced margin */
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  }
-  .footer-socials-elite a:hover {
-    transform: translateY(-5px);
-    background-color: #007bff;
-    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
-  }
-  .footer-socials-elite img {
-    width: 24px; /* Reduced size */
-    height: 24px; /* Reduced size */
+  .footer-socials-compact a:hover img {
     filter: invert(1);
   }
-  .footer-copyright {
-    margin-top: 40px; /* Reduced margin */
-    font-size: 0.9em;
-    color: #555;
+  .footer-copyright-compact {
+    margin-top: 20px; /* Space between icons and text */
+    font-size: 0.85em; /* Small, clean text */
   }
 
 </style>
@@ -140,7 +113,27 @@ layout: layouts/base.njk
         </svg>
       </div>
 
-     
+      <!-- RESTORED & FINAL "In a previous life" + "Mentors" sections -->
+      <div class="section miscelanious-is-a-funny-word">
+        <div class="main-content-wrapper in-the-year-2000" data-theme-color="rgb(255, 255, 255)">
+          <div class="content">
+            <h3>In a previous life...</h3>
+            <p>Before dedicating myself to the markets, I pursued other passions that honed the skills I use every day.</p>
+            <ul>
+              <li class="athlete">
+                <div class="flexing-like-a-douche">
+                  <div class="detail">
+                    <img src="https://cdn.jsdelivr.net/npm/@tabler/icons-svg@latest/icons/run.svg" style="width:40px; height:40px; filter: invert(0.4);" alt="Athlete Icon"/>
+                  </div>
+                  <div class="wrapper">
+                    <h4>Athlete</h4>
+                    <p>The explosive discipline of a 100m sprinter taught me about peak performance and mental focus.</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
 
         <div class="main-content-wrapper people-id-like-to-meet">
           <div class="content">
@@ -156,17 +149,15 @@ layout: layouts/base.njk
         </div>
       </div>
       
-      <!-- NEW ELITE FOOTER (COMPACT VERSION) -->
-      <div class="footer-elite">
-        <h3 class="footer-title">Let's Connect</h3>
-        <p class="footer-tagline">Find me on social media. Let's talk trades, strategy, and the markets.</p>
-        <div class="footer-socials-elite">
+      <!-- NEW COMPACT FOOTER -->
+      <div class="footer-compact">
+        <div class="footer-socials-compact">
           <a href="https://t.me/ceejaytrades_ke" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
           <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
           <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
           <a href="https://github.com/Edwar-code/Portfolio" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/github.svg" alt="GitHub"/></a>
         </div>
-        <p class="footer-copyright">Copyleft © [what-year-is-this]</p>
+        <p class="footer-copyright-compact">Copyleft © [what-year-is-this]</p>
       </div>
 
     </div>
