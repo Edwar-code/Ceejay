@@ -1,4 +1,3 @@
----
 layout: layouts/base.njk
 ---
 
@@ -28,6 +27,37 @@ layout: layouts/base.njk
   .footer-copyright-compact {
     margin-top: 20px; /* Space between icons and text */
     font-size: 0.85em; /* Small, clean text */
+  }
+
+  /* --- FLOATING WHATSAPP BUTTON --- */
+  .floating-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366; /* Official WhatsApp Green */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-decoration: none;
+    font-family: Arial, sans-serif; /* A safe font choice */
+    font-weight: bold;
+    font-size: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .floating-whatsapp:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .floating-whatsapp svg {
+    width: 28px;
+    height: 28px;
   }
 
 </style>
@@ -113,27 +143,6 @@ layout: layouts/base.njk
         </svg>
       </div>
 
-      <!-- RESTORED & FINAL "In a previous life" + "Mentors" sections -->
-      <div class="section miscelanious-is-a-funny-word">
-        <div class="main-content-wrapper in-the-year-2000" data-theme-color="rgb(255, 255, 255)">
-          <div class="content">
-            <h3>In a previous life...</h3>
-            <p>Before dedicating myself to the markets, I pursued other passions that honed the skills I use every day.</p>
-            <ul>
-              <li class="athlete">
-                <div class="flexing-like-a-douche">
-                  <div class="detail">
-                    <img src="https://cdn.jsdelivr.net/npm/@tabler/icons-svg@latest/icons/run.svg" style="width:40px; height:40px; filter: invert(0.4);" alt="Athlete Icon"/>
-                  </div>
-                  <div class="wrapper">
-                    <h4>Athlete</h4>
-                    <p>The explosive discipline of a 100m sprinter taught me about peak performance and mental focus.</p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
 
         <div class="main-content-wrapper people-id-like-to-meet">
           <div class="content">
@@ -162,4 +171,12 @@ layout: layouts/base.njk
 
     </div>
     <img src="/assets/not-how-this-works.png" id="easterNope" class="easter not-how-this-works" />
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/254740330448" class="floating-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 4.315 1.919 6.066l-1.472 5.373 5.571-1.451zm5.353-7.241c-.277-.14-.739-.365-1.078-.515-.339-.15-1.077-.14-1.353.15-.276.29-.413.515-.515.655-.102.14-.19.15-.339.015-.812-.47-1.472-1.05-2.056-1.745s-1.002-1.47-1.39-2.055c-.14-.23-.05-.33.05-.43.09-.1.2-.26.3-.39s.15-.2.2-.36c.05-.15.015-.29 0-.44-.015-.15-.49-1.2-.68-1.65s-.36-.36-.49-.38c-.14-.015-.29-.015-.44-.015-.15 0-.39.06-.59.3-.2.24-.73.74-.73 1.79s.75 2.08 1.45 2.82c.7 1.1 1.2 1.59 2.5 2.5s2.05 1.45 2.85 1.5c1.1.05 1.7-.24 2.1-.82.4-.58.4-1.1.3-1.25z"/>
+      </svg>
+      Let's Chat
+    </a>
   </div>
