@@ -217,32 +217,30 @@ a.external-link {
   justify-content: center;
 }
 
+/* === MODIFIED SECTION: START === */
+
+/* This rule defines the starting position of the image (hidden off-screen to the right) */
 #easterNope {
   z-index: 999;
   position: fixed;
-  right: -280px;
   top: 50%;
+  left: 100vw; /* Start position: completely off the right side of the screen */
   height: 200px;
-  animation-fill-mode: forwards;
+  visibility: hidden; /* It's not visible by default */
+  transform: translateY(-50%); /* This keeps it perfectly centered vertically */
+  
+  /* This creates the smooth slide-in animation */
+  transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.popin {
-  animation: 1s popin cubic-bezier(0.770, 0.000, 0.175, 1.000);
+/* This class will be added by JavaScript to show and animate the image */
+#easterNope.show {
+  visibility: visible;
+  left: 50%; /* Final position: horizontal center */
+  transform: translate(-50%, -50%); /* Adjusts to make it perfectly centered */
 }
 
-.popout {
-  animation: 1s popout cubic-bezier(0.770, 0.000, 0.175, 1.000);
-}
-
-@keyframes popin {
-  from { left: -280px; }
-  to {left: 0;}
-}
-
-@keyframes popout {
-  from { left: 0px; }
-  to {left: -280px;}
-}
+/* === MODIFIED SECTION: END === */
 
 .hide {
   display: none;
