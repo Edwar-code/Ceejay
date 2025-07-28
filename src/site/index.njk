@@ -1,22 +1,25 @@
----
 layout: layouts/base.njk
 ---
 
 <style>
 
-
   .navbar-wrapper {
     position: fixed;
-   
+    /* --- RESTORED --- */
+    top: 0.75rem;
+    width: 100%;
+    z-index: 100; /* Ensures it stays on top */
+    /* --- END RESTORED --- */
     display: flex;
     justify-content: center;
   }
   .navbar {
     display: flex;
-
-  
-    /* This creates the "glassmorphism" effect from your example */
-    background-color: rgba(180, 175, 165, 0.1); /* Equivalent to bg-brown3/10 */
+    /* --- RESTORED --- */
+    gap: 4px;
+    padding: 4px;
+    /* --- END RESTORED --- */
+    background-color: rgba(180, 175, 165, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 9999px;
     backdrop-filter: blur(10px);
@@ -25,9 +28,11 @@ layout: layouts/base.njk
   .navbar a {
     scroll-behavior: smooth;
     cursor: pointer;
- 
+    /* --- RESTORED --- */
+    padding: 6px 16px;
+    /* --- END RESTORED --- */
     border-radius: 9999px;
-    color: rgba(20, 20, 20, 0.7); /* text-dark/70 */
+    color: rgba(20, 20, 20, 0.7);
     font-size: 0.875rem;
     font-weight: 600;
     text-decoration: none;
@@ -35,7 +40,7 @@ layout: layouts/base.njk
   }
   .navbar a:hover {
     background-color: rgba(0, 0, 0, 0.9);
-    color: #f7f3e9; /* A light brown, similar to your 'text-brown1' idea */
+    color: #f7f3e9;
   }
 
   
@@ -45,7 +50,7 @@ layout: layouts/base.njk
   .footer-compact {
     background-color: #111;
     color: #666;
-    padding: 25px 20px; /* Minimal padding for a short height */
+    padding: 25px 20px;
     text-align: center;
   }
   .footer-socials-compact a {
@@ -53,7 +58,7 @@ layout: layouts/base.njk
     margin: 0 12px;
   }
   .footer-socials-compact img {
-    width: 24px; /* Small, clean icons */
+    width: 24px;
     height: 24px;
     filter: invert(0.5);
     transition: filter 0.3s ease;
@@ -62,8 +67,8 @@ layout: layouts/base.njk
     filter: invert(1);
   }
   .footer-copyright-compact {
-    margin-top: 20px; /* Space between icons and text */
-    font-size: 0.85em; /* Small, clean text */
+    margin-top: 20px;
+    font-size: 0.85em;
   }
 
 </style>
@@ -78,7 +83,7 @@ layout: layouts/base.njk
         <a href="#contact">Contact</a>
       </nav>
     </div>
-      <div class="section big-hero-six" data-theme-color="rgb(255, 255, 255)">
+      <div id="home" class="section big-hero-six" data-theme-color="rgb(255, 255, 255)">
         <div class="background">
           <video preload playsinline muted autoplay poster="/assets/poster.jpg" src="/assets/background-video.mp4" fetchpriority="high">
           </video>
@@ -95,7 +100,7 @@ layout: layouts/base.njk
       </div>
 
       <!-- SPECIALTY 1: SNIPER ENTRIES -->
-      <div class="section handmirror" data-theme-color="rgb(234, 233, 234)">
+      <div id="specialties" class="section handmirror" data-theme-color="rgb(234, 233, 234)">
         <div class="main-content-wrapper">
           <div class="content">
             <h2><span class="timestamp">Specialty</span><br />Sniper Entries</h2>
@@ -161,6 +166,26 @@ layout: layouts/base.njk
         </svg>
       </div>
 
+      <div id="about" class="section miscelanious-is-a-funny-word">
+        <div class="main-content-wrapper in-the-year-2000" data-theme-color="rgb(255, 255, 255)">
+          <div class="content">
+            <h3>In a previous life...</h3>
+            <p>Before dedicating myself to the markets, I pursued other passions that honed the skills I use every day.</p>
+            <ul>
+              <li class="athlete">
+                <div class="flexing-like-a-douche">
+                  <div class="detail">
+                    <img src="https://cdn.jsdelivr.net/npm/@tabler/icons-svg@latest/icons/run.svg" style="width:40px; height:40px; filter: invert(0.4);" alt="Athlete Icon"/>
+                  </div>
+                  <div class="wrapper">
+                    <h4>Athlete</h4>
+                    <p>The explosive discipline of a 100m sprinter taught me about peak performance and mental focus.</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
 
         <div class="main-content-wrapper people-id-like-to-meet">
           <div class="content">
@@ -177,7 +202,7 @@ layout: layouts/base.njk
       </div>
       
       <!-- NEW COMPACT FOOTER -->
-      <div class="footer-compact">
+      <div id="contact" class="footer-compact">
         <div class="footer-socials-compact">
           <a href="https://t.me/ceejaytrades_ke" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
           <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
