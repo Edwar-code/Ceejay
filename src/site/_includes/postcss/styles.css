@@ -220,7 +220,7 @@ a.external-link {
 #easterNope {
   z-index: 999;
   position: fixed;
-  left: -280px;
+  right: -280px;
   top: 50%;
   height: 200px;
   animation-fill-mode: forwards;
