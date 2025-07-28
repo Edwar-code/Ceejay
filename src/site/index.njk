@@ -7,7 +7,7 @@ layout: layouts/base.njk
     position: fixed;
     width: 100%;
     top: 20px;
-    z-index: 1000;
+    z-index: 1001; /* Must be on top */
     display: flex;
     justify-content: center;
   }
@@ -36,31 +36,38 @@ layout: layouts/base.njk
     color: #f7f3e9;
   }
 
-  /* --- PROFILE PICTURE STYLES --- */
+  /* --- CORRECTED PROFILE PHOTO STYLES --- */
   .profile-photo-container {
+    position: absolute; /* Lifts the element out of the document flow */
+    width: 100%;
+    top: 85px; /* Distance from the top of the page */
+    left: 0;
     display: flex;
     justify-content: center;
-    position: relative;
-    z-index: 10; /* Above background, below navbar */
-    margin-top: 85px; /* Pushes photo down from the top */
-    margin-bottom: -60px; /* Pulls the hero content up behind the photo */
+    z-index: 10; /* Places it on top of the hero video */
   }
   .profile-photo {
     width: 120px;
     height: 120px;
-    border-radius: 50%; /* Makes the image a circle */
+    border-radius: 50%;
     border: 5px solid #FFFFFF;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-    object-fit: cover; /* Prevents image from being stretched */
+    object-fit: cover;
   }
 
-  /* --- SECTION & WAVE FIXES --- */
   .section {
     position: relative;
     display: flex;
     justify-content: center;
     overflow: visible;
   }
+  
+  /* --- HERO SECTION PADDING FIX --- */
+  .big-hero-six {
+    /* This padding pushes the text down to make room for the overlapping photo */
+    padding-top: 180px; 
+  }
+  
   .wave-bottom {
     bottom: -2px;
   }
@@ -179,8 +186,7 @@ layout: layouts/base.njk
 
 <!-- PROFILE PHOTO -->
 <div class="profile-photo-container">
-  <!-- Remember to rename your image file and place it in the /assets/ folder -->
-  <img src="/assets/profile.jpg" alt="CeejayFX Profile Photo" class="profile-photo">
+  <img src="/assets/profile-photo.jpg" alt="CeejayFX Profile Photo" class="profile-photo">
 </div>
 
 <div class="papa-wrapper">
@@ -188,11 +194,11 @@ layout: layouts/base.njk
     <div class="background">
       <video preload playsinline muted autoplay poster="/assets/poster.jpg" src="/assets/background-video.mp4" fetchpriority="high"></video>
     </div>
-    <div class="main-content-wrapper" style="padding-top: 60px;"> <!-- Added padding to not be hidden by photo -->
+    <div class="main-content-wrapper">
       <div class="content">
-        <p>Hello , I'm</p>
+        <p>Welcome, my name is</p>
         <h1>Ceejay<span id="unecessary-part-of-name">FX</span></h1>
-        <p>A student at The University of Nairobi, Fulltime Forex & Synthetics Trader, engineering strategies for market success.</p>
+        <p>I am a student at The University of Nairobi, Fulltime Forex & Synthetics Trader, engineering strategies for market success.</p>
       </div>
     </div>
     <div class="custom-wave"></div>
