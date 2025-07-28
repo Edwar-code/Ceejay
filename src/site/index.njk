@@ -3,153 +3,175 @@ layout: layouts/base.njk
 ---
 
 <style>
-  /* --- THEME COLOR VARIABLES --- */
-  :root {
-    --color-bg-primary: #FFFFFF;
-    --color-bg-secondary: #eae9ea;
-    --color-bg-dark: #060606;
-    --color-bg-off-white: #faf9f6;
-    --color-text-primary: #0e1e25;
-    --color-text-secondary: rgba(14, 30, 37, 0.7);
-    --color-text-inverted: #faf9f6;
-    --color-card-bg: #FFFFFF;
-    --color-card-shadow: rgba(14, 30, 37, 0.16);
-    --color-navbar-bg: rgba(180, 175, 165, 0.1);
-    --color-footer-bg: #111;
-    --color-footer-text: #666;
-    --color-theme-icon: #0e1e25;
-  }
-
-  [data-theme="dark"] {
-    --color-bg-primary: #121212;
-    --color-bg-secondary: #1E1E1E;
-    --color-bg-dark: #000000;
-    --color-bg-off-white: #181818;
-    --color-text-primary: #EAEAEA;
-    --color-text-secondary: rgba(234, 234, 234, 0.7);
-    --color-text-inverted: #0e1e25;
-    --color-card-bg: #2A2A2A;
-    --color-card-shadow: rgba(0, 0, 0, 0.4);
-    --color-navbar-bg: rgba(20, 20, 20, 0.3);
-    --color-footer-bg: #000000;
-    --color-footer-text: #888;
-    --color-theme-icon: #EAEAEA;
-  }
-  
-  body {
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  /* --- NAVBAR & THEME SWITCHER --- */
   .navbar-wrapper {
     position: fixed;
     width: 100%;
     top: 20px;
-    z-index: 1001;
+    z-index: 1001; /* Must be on top */
     display: flex;
     justify-content: center;
   }
   .navbar {
     display: flex;
-    align-items: center; /* Vertically align items */
-    padding: 8px 8px 8px 20px; /* Adjust padding for button */
-    background-color: var(--color-navbar-bg);
+    padding: 8px 12px;
+    background-color: rgba(180, 175, 165, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 9999px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    transition: background-color 0.3s ease;
   }
   .navbar a {
-    /* ... existing styles ... */
-  }
-  .theme-switcher {
-    background: none;
-    border: none;
+    scroll-behavior: smooth;
     cursor: pointer;
-    padding: 8px;
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    color: #007AFF;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   }
-  .theme-switcher svg {
-    width: 20px;
-    height: 20px;
-    fill: var(--color-theme-icon);
-    transition: fill 0.3s ease;
+  .navbar a:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #f7f3e9;
   }
-  .theme-switcher .icon-sun { display: none; }
-  .theme-switcher .icon-moon { display: block; }
-  [data-theme="dark"] .theme-switcher .icon-sun { display: block; }
-  [data-theme="dark"] .theme-switcher .icon-moon { display: none; }
 
-
-  /* --- PROFILE PHOTO --- */
+  /* --- CORRECTED PROFILE PHOTO STYLES --- */
   .profile-photo-container {
-    position: absolute;
+    position: absolute; /* Lifts the element out of the document flow */
     width: 100%;
-    top: 85px;
+    top: 85px; /* Distance from the top of the page */
     left: 0;
     display: flex;
     justify-content: center;
-    z-index: 10;
+    z-index: 10; /* Places it on top of the hero video */
   }
   .profile-photo {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 5px solid var(--color-bg-primary); /* Border matches background */
+    border: 5px solid #FFFFFF;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
     object-fit: cover;
-    transition: border-color 0.3s ease;
   }
 
-  /* --- GENERAL CONTENT & CARDS --- */
-  p {
-    color: var(--color-text-secondary);
-  }
-  .card {
-    background: var(--color-card-bg);
-    box-shadow: 0px 4px 34px 2px var(--color-card-shadow);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
   .section {
     position: relative;
     display: flex;
     justify-content: center;
     overflow: visible;
-    transition: background-color 0.3s ease;
   }
+  
+  /* --- HERO SECTION PADDING FIX --- */
   .big-hero-six {
-    padding-top: 180px;
-    background-color: var(--color-bg-primary);
+    /* This padding pushes the text down to make room for the overlapping photo */
+    padding-top: 180px; 
+  }
+  
+  .wave-bottom {
+    bottom: -2px;
   }
 
-  /* Apply theme colors to sections */
-  #specialties { background-color: var(--color-bg-secondary); }
-  .thwip { background-color: var(--color-bg-dark); }
-  .thwip .content { color: var(--color-text-inverted); }
-  .netlify { background-color: var(--color-bg-off-white); }
-  #about { background-color: var(--color-bg-primary); padding: 60px 0; }
-  
-  /* Make SVGs use theme colors */
-  #wave-1 path { fill: var(--color-bg-dark); }
-  #wave-2 path { fill: var(--color-bg-off-white); }
-  #wave-3 path { fill: var(--color-bg-primary); }
-
-  .wave-bottom { bottom: -2px; }
-
-  /* --- FOOTER & FAB --- */
   .footer-compact {
-    background-color: var(--color-footer-bg);
-    color: var(--color-footer-text);
+    background-color: #111;
+    color: #666;
+    padding: 25px 20px;
+    text-align: center;
   }
+  .footer-socials-compact a {
+    display: inline-block;
+    margin: 0 12px;
+  }
+  .footer-socials-compact img {
+    width: 24px;
+    height: 24px;
+    filter: invert(0.5);
+    transition: filter 0.3s ease;
+  }
+  .footer-socials-compact a:hover img {
+    filter: invert(1);
+  }
+  .footer-copyright-compact {
+    margin-top: 20px;
+    font-size: 0.85em;
+  }
+
+  .fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    cursor: pointer;
+  }
+  .fab-main {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #007AFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  .fab-main:hover {
+    transform: scale(1.1);
+  }
+  .fab-main svg {
+    width: 30px;
+    height: 30px;
+    fill: #FFFFFF;
+  }
+  .fab-options {
+    position: absolute;
+    bottom: 75px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  }
+  .fab-container.is-active .fab-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .fab-options a {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .fab-options a:hover {
+    transform: scale(1.15);
+  }
+  .fab-options img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1);
+  }
+  #fab-whatsapp { background-color: #25D366; }
+  #fab-telegram { background-color: #26A5E4; }
+  #fab-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
   
-  /* ... other existing styles ... */
-  h1, h2, h3, a, .fab-container, etc.
+  .fab-container.is-active .fab-options a {
+    animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  .fab-container.is-active .fab-options a:nth-child(1) { animation-delay: 0.1s; }
+  .fab-container.is-active .fab-options a:nth-child(2) { animation-delay: 0.2s; }
+  .fab-container.is-active .fab-options a:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+  }
 </style>
 
 <!-- NAVBAR -->
@@ -159,11 +181,6 @@ layout: layouts/base.njk
     <a href="#specialties">Specialties</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
-    <!-- THEME SWITCHER BUTTON -->
-    <button class="theme-switcher" id="theme-switcher" aria-label="Toggle Dark Mode">
-      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,18A6,6,0,0,1,6,12a6,6,0,0,1,6-6,1,1,0,0,0,0-2,8,8,0,0,0-8,8,8,8,0,0,0,8,8,1,1,0,0,0,0-2Z"/></svg>
-      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,6a1,1,0,0,0-1,1V9a1,1,0,0,0,2,0V7A1,1,0,0,0,12,6ZM12,15a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V16A1,1,0,0,0,12,15ZM20,12a1,1,0,0,0-1-1H17a1,1,0,0,0,0,2h2A1,1,0,0,0,20,12ZM7,11H5a1,1,0,0,0,0,2H7a1,1,0,0,0,0-2ZM17.66,7.34a1,1,0,0,0-1.42,0l-1.41,1.41a1,1,0,0,0,1.41,1.42l1.42-1.41A1,1,0,0,0,17.66,7.34ZM8.76,15.24a1,1,0,0,0-1.42,0L5.92,16.66a1,1,0,0,0,1.42,1.41l1.41-1.42A1,1,0,0,0,8.76,15.24ZM18.08,16.66a1,1,0,0,0-1.42-1.41l-1.41,1.41a1,1,0,1,0,1.41,1.42ZM8.76,8.76A1,1,0,0,0,7.34,7.34L5.92,8.76A1,1,0,0,0,7.34,10.17l1.42-1.41ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/></svg>
-    </button>
   </nav>
 </div>
 
@@ -173,7 +190,7 @@ layout: layouts/base.njk
 </div>
 
 <div class="papa-wrapper">
-  <div id="home" class="section big-hero-six">
+  <div id="home" class="section big-hero-six" data-theme-color="rgb(255, 255, 255)">
     <div class="background">
       <video preload playsinline muted autoplay poster="/assets/poster.jpg" src="/assets/background-video.mp4" fetchpriority="high"></video>
     </div>
@@ -188,79 +205,110 @@ layout: layouts/base.njk
   </div>
 
   <!-- SPECIALTY 1: SNIPER ENTRIES -->
-  <div id="specialties" class="section handmirror">
+  <div id="specialties" class="section handmirror" data-theme-color="rgb(234, 233, 234)" style="background-color: rgb(234, 233, 234);">
     <div class="main-content-wrapper">
-      <!-- content -->
+      <div class="content">
+        <h2><span class="timestamp">Specialty</span><br />Sniper Entries</h2>
+        <p>Patience, precision, and execution. My primary focus is identifying the exact moment the market is poised to move, entering with minimal drawdown and maximum potential.</p>
+        <p>Like a reflection, the charts show you what has happened. But true skill lies in seeing the reflection of what's *about* to happen. This is the core of my strategy—waiting for the perfect setup before pulling the trigger.</p>
+      </div>
+      <div class="showcase">
+        <div class="card video-card depth-level-3"><video preload playsinline muted autoplay loop src="/assets/handmirror-demo-4.mp4"></video></div>
+        <div class="card video-card depth-level-3"><video preload playsinline muted autoplay loop src="/assets/handmirror-demo-2.mp4"></video></div>
+        <div class="card depth-level-1 hero-card"></div>
+        <div class="card video-card depth-level-2"><video preload playsinline muted autoplay loop src="/assets/handmirror-demo-3.mp4"></video></div>
+        <div class="card video-card depth-level-2"><video preload playsinline muted autoplay loop src="/assets/handmirror-demo-1.mp4"></video></div>
+      </div>
     </div>
-    <svg id="wave-1" class="wave wave-bottom" width="4323" height="700" viewBox="0 0 4323 700" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4323 34.5566C4323 252.392 4225.5 548.808 3509.5 548.808C3135 548.808 3153.5 368.696 2564.5 393C2119.77 411.351 1139.99 506.534 733.498 548.808C327.002 591.082 0 561.739 0 561.739V700H4323C4323 700 4323 -183.279 4323 34.5566Z"/>
+    <svg class="wave wave-bottom" width="4323" height="700" viewBox="0 0 4323 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4323 34.5566C4323 252.392 4225.5 548.808 3509.5 548.808C3135 548.808 3153.5 368.696 2564.5 393C2119.77 411.351 1139.99 506.534 733.498 548.808C327.002 591.082 0 561.739 0 561.739V700H4323C4323 700 4323 -183.279 4323 34.5566Z" fill="#060606"/>
     </svg>
   </div>
 
   <!-- SPECIALTY 2: PRECISE MARKET ANALYSIS -->
-  <div class="section thwip">
+  <div class="section thwip" data-theme-color="rgb(6, 6, 6)" style="background-color: #060606;">
     <div class="main-content-wrapper">
-      <!-- content -->
+      <div class="content" style="color: #faf9f6;">
+        <h2><span class="timestamp">Specialty</span><br />Precise Market Analysis</h2>
+        <p>A trade is only as good as the analysis behind it. I've developed a robust framework for decoding market behavior, layering technicals, sentiment, and structure.</p>
+        <p>Each piece of data is like a distinct signal. When multiple signals align, they create a harmony of confluence—a high-probability setup. This system filters out the noise, allowing me to act with confidence.</p>
+      </div>
+      <div class="showcase">
+        <div class="card depth-level-1"></div>
+        <div class="card depth-level-2"></div>
+        <div class="card depth-level-3"></div>
+        <div class="card depth-level-2"></div>
+        <div class="card depth-level-3"></div>
+        <div class="card depth-level-1 video-card"><video preload playsinline muted autoplay loop src="/assets/thwip-video.mp4" id="thwip-video"></video></div>
+      </div>
     </div>
-    <svg id="wave-2" class="wave wave-bottom" width="4323" height="700" viewBox="0 0 4323 700" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4.72978e-08 34.5567C-0.00398254 252.392 251.499 426.462 957.999 515.983C2043 640.319 1870.5 376.296 2459.5 400.6C2904.23 418.951 3183 506.534 3589.5 548.808C3996 591.082 4323 561.739 4323 561.739V700H4.72978e-08C4.72978e-08 700 0.00398264 -183.279 4.72978e-08 34.5567Z"/>
+    <svg class="wave wave-bottom" width="4323" height="700" viewBox="0 0 4323 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4.72978e-08 34.5567C-0.00398254 252.392 251.499 426.462 957.999 515.983C2043 640.319 1870.5 376.296 2459.5 400.6C2904.23 418.951 3183 506.534 3589.5 548.808C3996 591.082 4323 561.739 4323 561.739V700H4.72978e-08C4.72978e-08 700 0.00398264 -183.279 4.72978e-08 34.5567Z" fill="#faf9f6"/>
     </svg>
   </div>
   
   <!-- SPECIALTY 3: ACCOUNT FLIPS -->
-  <div class="section netlify">
+  <div class="section netlify" data-theme-color="rgb(250, 249, 246)" style="background-color: #faf9f6;">
     <div class="main-content-wrapper">
-      <!-- content -->
+      <div class="content">
+        <h2><span class="timestamp">Specialty</span><br />Account Flips</h2>
+        <p>The ultimate test of skill and psychological fortitude. This is the art of taking a small account and aggressively compounding it through a series of precise, high-conviction trades.</p>
+        <p>It requires cracking the market's code under pressure. While not a core strategy for all, it's a demonstration of what's possible with elite skill and calculated risk management.</p>
+      </div>
+      <div class="showcase">
+        <div class="card depth-level-2"></div>
+        <div class="card depth-level-3"></div>
+        <div class="card depth-level-1"></div>
+        <div class="card depth-level-2"></div>
+        <div class="card depth-level-3"></div>
+      </div>
     </div>
-    <svg id="wave-3" class="wave wave-bottom" width="4324" height="202" viewBox="0 0 4324 202" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0.996094 202V80.4186C0.996094 80.4186 202 -52.0911 743 24.5C1284 101.091 1884 24.5 2624 24.5C3364 24.5 4324 101.091 4324 101.091C4324 101.091 4324 202 4324 202H0.996094Z"/>
+    <svg class="wave wave-bottom" width="4324" height="202" viewBox="0 0 4324 202" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0.996094 202V80.4186C0.996094 80.4186 202 -52.0911 743 24.5C1284 101.091 1884 24.5 2624 24.5C3364 24.5 4324 101.091 4324 101.091C4324 101.091 4324 202 4324 202H0.996094Z" fill="#FFFFFF"/>
     </svg>
   </div>
 
-  <div id="about" class="main-content-wrapper people-id-like-to-meet">
-    <!-- content -->
+
+  <div id="about" class="main-content-wrapper people-id-like-to-meet" style="background-color: #FFFFFF; padding: 60px 0;">
+    <div class="content">
+      <h3>Mentors & Inspirations</h3>
+      <p>As a trader and a student, I'm constantly learning from those who've mastered their craft. I've been fortunate to connect with some incredible minds, but the journey of learning never stops. Here are a few inspirations.</p>
+      <ul>
+        <li class="checked"><span class="tick"></span><a href="#">Vidollar</a></li>
+        <li class="checked"><span class="tick"></span><a href="#">Habbyfx</a></li>
+        <li><span class="tick"></span><a href="#">You</a></li>
+      </ul>
+    </div>
   </div>
 
   <!-- NEW COMPACT FOOTER -->
   <div id="contact" class="footer-compact">
-    <!-- content -->
+    <div class="footer-socials-compact">
+      <a href="https://t.me/ceejaytrades_ke" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
+      <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
+      <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
+    </div>
+    <p class="footer-copyright-compact">Copyleft © 2025</p>
   </div>
 </div>
 
 <img src="/assets/not-how-this-works.png" id="easterNope" class="easter not-how-this-works" />
 
-<!-- FLOATING ACTION BUTTON -->
+<!-- FLOATING ACTION BUTTON (FAB) FOR LIVE CHAT -->
 <div class="fab-container">
-  <!-- content -->
+  <div class="fab-options">
+    <a id="fab-instagram" href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank" title="Instagram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
+    <a id="fab-telegram" href="https://t.me/ceejaytrades_ke" target="_blank" title="Telegram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
+    <a id="fab-whatsapp" href="https://wa.me/+254716297699" target="_blank" title="WhatsApp"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/whatsapp.svg" alt="WhatsApp"/></a>
+  </div>
+
+  <div class="fab-main">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,2H4A2,2,0,0,0,2,4V22L6,18H20A2,2,0,0,0,22,16V4A2,2,0,0,0,20,2ZM20,16H5.17L4,17.17V4H20Z"/></svg>
+  </div>
 </div>
 
 <script>
-  // --- THEME SWITCHER SCRIPT ---
-  const themeSwitcher = document.getElementById('theme-switcher');
-  const doc = document.documentElement;
-
-  // Function to set the theme
-  const setTheme = (theme) => {
-    doc.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  };
-
-  // Event listener for the button
-  themeSwitcher.addEventListener('click', () => {
-    const currentTheme = doc.getAttribute('data-theme');
-    if (currentTheme === 'dark') {
-      setTheme('light');
-    } else {
-      setTheme('dark');
-    }
-  });
-
-  // Load the saved theme on page load
-  document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-
-    // --- FAB SCRIPT ---
+  document.addEventListener('DOMContentLoaded', function() {
     const fabContainer = document.querySelector('.fab-container');
     fabContainer.addEventListener('click', function() {
       this.classList.toggle('is-active');
