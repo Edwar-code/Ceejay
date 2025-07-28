@@ -6,16 +6,14 @@ layout: layouts/base.njk
   .navbar-wrapper {
     position: fixed;
     width: 100%;
-    top: 20px; /* Adjust as needed */
-    z-index: 1000; /* Ensure it's above other content */
+    top: 20px;
+    z-index: 1000;
     display: flex;
     justify-content: center;
   }
   .navbar {
     display: flex;
     padding: 8px 12px;
-  
-    /* This creates the "glassmorphism" effect */
     background-color: rgba(180, 175, 165, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 9999px;
@@ -27,7 +25,7 @@ layout: layouts/base.njk
     cursor: pointer;
     padding: 10px 20px;
     border-radius: 9999px;
-    color: rgba(20, 20, 20, 0.7); /* text-dark/70 */
+    color: #007AFF;
     font-size: 0.875rem;
     font-weight: 600;
     text-decoration: none;
@@ -35,10 +33,9 @@ layout: layouts/base.njk
   }
   .navbar a:hover {
     background-color: rgba(0, 0, 0, 0.9);
-    color: #f7f3e9; 
+    color: #f7f3e9;
   }
 
-  /* --- COMPACT FOOTER STYLES --- */
   .footer-compact {
     background-color: #111;
     color: #666;
@@ -61,6 +58,80 @@ layout: layouts/base.njk
   .footer-copyright-compact {
     margin-top: 20px;
     font-size: 0.85em;
+  }
+
+  /* --- STYLES FOR FLOATING ACTION BUTTON --- */
+  .fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    cursor: pointer;
+  }
+  .fab-main {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #25D366; /* WhatsApp Green */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  .fab-main:hover {
+    transform: scale(1.1);
+  }
+  .fab-main img {
+    width: 32px;
+    height: 32px;
+    filter: brightness(0) invert(1);
+  }
+  .fab-options {
+    position: absolute;
+    bottom: 75px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  }
+  .fab-container.is-active .fab-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .fab-options a {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .fab-options a:hover {
+    transform: scale(1.15);
+  }
+  .fab-options img {
+    width: 28px;
+    height: 28px;
+  }
+  .fab-container.is-active .fab-options a {
+    animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  .fab-container.is-active .fab-options a:nth-child(1) { animation-delay: 0.1s; }
+  .fab-container.is-active .fab-options a:nth-child(2) { animation-delay: 0.2s; }
+  .fab-container.is-active .fab-options a:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
   }
 </style>
 
@@ -157,3 +228,26 @@ layout: layouts/base.njk
 </div>
 
 <img src="/assets/not-how-this-works.png" id="easterNope" class="easter not-how-this-works" />
+
+<!-- FLOATING ACTION BUTTON (FAB) FOR LIVE CHAT -->
+<div class="fab-container">
+  <div class="fab-options">
+    <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank" title="Instagram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
+    <a href="https://t.me/ceejaytrades_ke" target="_blank" title="Telegram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
+    <!-- IMPORTANT: Replace YOUR_PHONE_NUMBER with your actual number -->
+    <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" title="WhatsApp"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/whatsapp.svg" alt="WhatsApp"/></a>
+  </div>
+  <div class="fab-main">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/whatsapp.svg" alt="Live Chat"/>
+  </div>
+</div>
+
+<script>
+  // JavaScript to make the button interactive
+  document.addEventListener('DOMContentLoaded', function() {
+    const fabContainer = document.querySelector('.fab-container');
+    fabContainer.addEventListener('click', function() {
+      this.classList.toggle('is-active');
+    });
+  });
+</script>
