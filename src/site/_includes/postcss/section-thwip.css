@@ -3,8 +3,8 @@
   position: relative;
   z-index: 0;
   margin-top: 0px;
-  background-color: var(--bg-dark-section); /* UPDATED */
-  color: var(--text-on-dark); /* UPDATED */
+  background: #060606;
+  color: #fff;
 
   .tint-color {
 	color: #f0d8fd;
@@ -14,7 +14,7 @@
 	z-index: 1;
 
 	path {
-		fill: var(--wave-fill-thwip); /* UPDATED */
+		fill: #DEC19A;
 	}
   }
 

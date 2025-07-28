@@ -2,8 +2,6 @@
   position: relative;
   z-index: 2;
   margin-top: -56px;
-  /* UPDATED: Add a background color that can be themed */
-  background-color: var(--bg-primary);
 
   .tint-color {
     color: #50C54C;

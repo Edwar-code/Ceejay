@@ -3,138 +3,38 @@ layout: layouts/base.njk
 ---
 
 <style>
-  /* --- CSS VARIABLES FOR THEMES --- */
-  :root {
-    --bg-color-light: #f7f3e9;
-    --text-color-light: #000;
-    --navbar-bg-light: rgba(180, 175, 165, 0.1);
-    --navbar-border-light: rgba(0, 0, 0, 0.15);
-    --navbar-link-light: #007AFF;
-    --navbar-hover-bg-light: rgba(0, 0, 0, 0.9);
-    --navbar-hover-text-light: #f7f3e9;
-    --profile-border-light: #FFFFFF;
-    --footer-bg-light: #111;
-    --footer-text-light: #666;
-    --footer-icon-filter-light: invert(0.5);
-    --footer-icon-hover-filter-light: invert(1);
-    
-    --bg-color-dark: #121212;
-    --text-color-dark: #E0E0E0;
-    --navbar-bg-dark: rgba(28, 28, 28, 0.5);
-    --navbar-border-dark: rgba(255, 255, 255, 0.15);
-    --navbar-link-dark: #0A84FF;
-    --navbar-hover-bg-dark: rgba(255, 255, 255, 0.9);
-    --navbar-hover-text-dark: #121212;
-    --profile-border-dark: #2C2C2C;
-    --footer-bg-dark: #1C1C1C;
-    --footer-text-dark: #A0A0A0;
-    --footer-icon-filter-dark: invert(0.8);
-    --footer-icon-hover-filter-dark: invert(1);
-  }
-
-  body {
-    background-color: var(--bg-color-light);
-    color: var(--text-color-light);
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
   .navbar-wrapper {
     position: fixed;
     width: 100%;
     top: 20px;
-    z-index: 1001;
+    z-index: 1001; /* Must be on top */
     display: flex;
     justify-content: center;
   }
   .navbar {
     display: flex;
     padding: 8px 12px;
-    background-color: var(--navbar-bg-light);
-    border: 1px solid var(--navbar-border-light);
+    background-color: rgba(180, 175, 165, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 9999px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
   .navbar a {
     scroll-behavior: smooth;
     cursor: pointer;
     padding: 10px 20px;
     border-radius: 9999px;
-    color: var(--navbar-link-light);
+    color: #007AFF;
     font-size: 0.875rem;
     font-weight: 600;
     text-decoration: none;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   }
   .navbar a:hover {
-    background-color: var(--navbar-hover-bg-light);
-    color: var(--navbar-hover-text-light);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #f7f3e9;
   }
-
-  /* --- DARK MODE STYLES --- */
-  body.dark-mode {
-    background-color: var(--bg-color-dark);
-    color: var(--text-color-dark);
-  }
-  .dark-mode .navbar {
-    background-color: var(--navbar-bg-dark);
-    border-color: var(--navbar-border-dark);
-  }
-  .dark-mode .navbar a {
-    color: var(--navbar-link-dark);
-  }
-  .dark-mode .navbar a:hover {
-    background-color: var(--navbar-hover-bg-dark);
-    color: var(--navbar-hover-text-dark);
-  }
-  .dark-mode .profile-photo {
-    border-color: var(--profile-border-dark);
-  }
-  .dark-mode .footer-compact {
-    background-color: var(--footer-bg-dark);
-    color: var(--footer-text-dark);
-  }
-  .dark-mode .footer-socials-compact img {
-    filter: var(--footer-icon-filter-dark);
-  }
-  .dark-mode .footer-socials-compact a:hover img {
-    filter: var(--footer-icon-hover-filter-dark);
-  }
-
-  /* --- THEME SWITCHER --- */
-  .theme-switcher {
-    position: fixed;
-    top: 30px;
-    right: 30px;
-    z-index: 1002;
-    cursor: pointer;
-    background-color: rgba(180, 175, 165, 0.2);
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(10px);
-  }
-  .dark-mode .theme-switcher {
-    background-color: rgba(28, 28, 28, 0.5);
-    border-color: rgba(255, 255, 255, 0.15);
-  }
-  .theme-switcher svg {
-    width: 24px;
-    height: 24px;
-    fill: var(--text-color-light);
-  }
-  .dark-mode .theme-switcher svg {
-    fill: var(--text-color-dark);
-  }
-  #sun-icon { display: none; }
-  .dark-mode #moon-icon { display: none; }
-  .dark-mode #sun-icon { display: block; }
-  
 
   /* --- CORRECTED PROFILE PHOTO STYLES --- */
   .profile-photo-container {
@@ -150,10 +50,9 @@ layout: layouts/base.njk
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 5px solid var(--profile-border-light);
+    border: 5px solid #FFFFFF;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
     object-fit: cover;
-    transition: border-color 0.3s ease;
   }
 
   .section {
@@ -165,6 +64,7 @@ layout: layouts/base.njk
   
   /* --- HERO SECTION PADDING FIX --- */
   .big-hero-six {
+    /* This padding pushes the text down to make room for the overlapping photo */
     padding-top: 180px; 
   }
   
@@ -173,11 +73,10 @@ layout: layouts/base.njk
   }
 
   .footer-compact {
-    background-color: var(--footer-bg-light);
-    color: var(--footer-text-light);
+    background-color: #111;
+    color: #666;
     padding: 25px 20px;
     text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
   }
   .footer-socials-compact a {
     display: inline-block;
@@ -186,11 +85,11 @@ layout: layouts/base.njk
   .footer-socials-compact img {
     width: 24px;
     height: 24px;
-    filter: var(--footer-icon-filter-light);
+    filter: invert(0.5);
     transition: filter 0.3s ease;
   }
   .footer-socials-compact a:hover img {
-    filter: var(--footer-icon-hover-filter-light);
+    filter: invert(1);
   }
   .footer-copyright-compact {
     margin-top: 20px;
@@ -274,12 +173,6 @@ layout: layouts/base.njk
     100% { opacity: 1; transform: scale(1); }
   }
 </style>
-
-<!-- THEME SWITCHER BUTTON -->
-<div class="theme-switcher" id="theme-switcher" title="Toggle Theme">
-  <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12A10 10 0 0 0 12 22A10 10 0 0 0 22 12A10 10 0 0 0 12 2M12 20V4A8 8 0 0 1 12 20Z"/></svg>
-  <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5S14.76,7,12,7L12,7z M2,13l2,0c0.03-0.5,0.13-1,0.29-1.46L2.64,10.29l1.41-1.41l1.62,1.62C6.13,9.93,6.57,9.57,7.04,9.29L5.71,7.67l1.41-1.41l1.32,1.32C9,7.13,9.5,7.03,10,7L10,5h2v2c0.5-0.03,1-0.13,1.46-0.29l1.29-1.62l1.41,1.41l-1.62,1.62c0.57,0.47,1.03,1.02,1.41,1.62l1.62-1.62l1.41,1.41l-1.32,1.32c0.16,0.46,0.26,0.96,0.29,1.46l2,0v2l-2,0c-0.03,0.5-0.13,1-0.29,1.46l1.62,1.62l-1.41,1.41l-1.62-1.62c-0.47,0.57-1.02,1.03-1.62,1.41l1.62,1.62l-1.41,1.41l-1.32-1.32C14.04,19.87,13.54,19.97,13,20v2h-2v-2c-0.5,0.03-1,0.13-1.46,0.29l-1.62,1.62l-1.41-1.41l1.62-1.62c-0.57-0.47-1.03-1.02-1.41-1.62L5.71,17.67l-1.41-1.41l1.32-1.32C5.13,14.04,5.03,13.54,5,13L5,13H3v-2H2z"/></svg>
-</div>
 
 <!-- NAVBAR -->
 <div class="navbar-wrapper">
@@ -420,24 +313,5 @@ layout: layouts/base.njk
     fabContainer.addEventListener('click', function() {
       this.classList.toggle('is-active');
     });
-
-    // --- THEME SWITCHER SCRIPT ---
-    const themeSwitcher = document.getElementById('theme-switcher');
-    const body = document.body;
-
-    themeSwitcher.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-      // Save theme preference
-      if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark-mode');
-      } else {
-        localStorage.removeItem('theme');
-      }
-    });
-
-    // Apply saved theme on page load
-    if (localStorage.getItem('theme') === 'dark-mode') {
-      body.classList.add('dark-mode');
-    }
   });
 </script>
