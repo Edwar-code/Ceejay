@@ -3,20 +3,20 @@ layout: layouts/base.njk
 ---
 
 <style>
-
-
   .navbar-wrapper {
     position: fixed;
-   
+    width: 100%;
+    top: 20px; /* Adjust as needed */
+    z-index: 1000; /* Ensure it's above other content */
     display: flex;
     justify-content: center;
   }
   .navbar {
     display: flex;
-
+    padding: 8px 12px;
   
-    /* This creates the "glassmorphism" effect from your example */
-    background-color: rgba(180, 175, 165, 0.1); /* Equivalent to bg-brown3/10 */
+    /* This creates the "glassmorphism" effect */
+    background-color: rgba(180, 175, 165, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 9999px;
     backdrop-filter: blur(10px);
@@ -25,7 +25,7 @@ layout: layouts/base.njk
   .navbar a {
     scroll-behavior: smooth;
     cursor: pointer;
- 
+    padding: 10px 20px;
     border-radius: 9999px;
     color: rgba(20, 20, 20, 0.7); /* text-dark/70 */
     font-size: 0.875rem;
@@ -35,17 +35,14 @@ layout: layouts/base.njk
   }
   .navbar a:hover {
     background-color: rgba(0, 0, 0, 0.9);
-    color: #f7f3e9; /* A light brown, similar to your 'text-brown1' idea */
+    color: #f7f3e9; 
   }
-
-  
-  /* --- FINAL POLISHED STYLES --- */
 
   /* --- COMPACT FOOTER STYLES --- */
   .footer-compact {
     background-color: #111;
     color: #666;
-    padding: 25px 20px; /* Minimal padding for a short height */
+    padding: 25px 20px;
     text-align: center;
   }
   .footer-socials-compact a {
@@ -53,7 +50,7 @@ layout: layouts/base.njk
     margin: 0 12px;
   }
   .footer-socials-compact img {
-    width: 24px; /* Small, clean icons */
+    width: 24px;
     height: 24px;
     filter: invert(0.5);
     transition: filter 0.3s ease;
@@ -62,130 +59,101 @@ layout: layouts/base.njk
     filter: invert(1);
   }
   .footer-copyright-compact {
-    margin-top: 20px; /* Space between icons and text */
-    font-size: 0.85em; /* Small, clean text */
+    margin-top: 20px;
+    font-size: 0.85em;
   }
-
 </style>
-      <!-- NAVBAR -->
-    <div class="navbar-wrapper">
-      <nav class="navbar">
-        <a href="#home">Home</a>
-        <a href="#specialties">Specialties</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+
+<!-- NAVBAR -->
+<div class="navbar-wrapper">
+  <nav class="navbar">
+    <a href="#home">Home</a>
+    <a href="#specialties">Specialties</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
+
+<div class="papa-wrapper">
+  <div id="home" class="section big-hero-six" data-theme-color="rgb(255, 255, 255)">
+    <div class="background">
+      <video preload playsinline muted autoplay poster="/assets/poster.jpg" src="/assets/background-video.mp4" fetchpriority="high"></video>
     </div>
-    <div class="papa-wrapper">
-      <div class="section big-hero-six" data-theme-color="rgb(255, 255, 255)">
-        <div class="background">
-          <video preload playsinline muted autoplay poster="/assets/poster.jpg" src="/assets/background-video.mp4" fetchpriority="high">
-          </video>
-        </div>
-        <div class="main-content-wrapper">
-          <div class="content">
-            <p>Welcome, my name is</p>
-            <h1>Ceejay<span id="unecessary-part-of-name">FX</span></h1>
-            <p>I am a student at The University of Nairobi,
-            Fulltime Forex & Synthetics Trader, engineering strategies for market success.</p>
-          </div>
-        </div>
-        <div class="custom-wave"></div>
+    <div class="main-content-wrapper">
+      <div class="content">
+        <p>Welcome, my name is</p>
+        <h1>Ceejay<span id="unecessary-part-of-name">FX</span></h1>
+        <p>I am a student at The University of Nairobi, Fulltime Forex & Synthetics Trader, engineering strategies for market success.</p>
       </div>
-
-      <!-- SPECIALTY 1: SNIPER ENTRIES -->
-      <div class="section handmirror" data-theme-color="rgb(234, 233, 234)">
-        <div class="main-content-wrapper">
-          <div class="content">
-            <h2><span class="timestamp">Specialty</span><br />Sniper Entries</h2>
-            <p>Patience, precision, and execution. My primary focus is identifying the exact moment the market is poised to move, entering with minimal drawdown and maximum potential.</p>
-            <p>Like a reflection, the charts show you what has happened. But true skill lies in seeing the reflection of what's *about* to happen. This is the core of my strategy—waiting for the perfect setup before pulling the trigger.</p>
-          </div>
-          <div class="showcase">
-            <div class="card video-card depth-level-3"><video preload playsinline muted autoplay loop src="/assets/handmirror-demo-4.mp4"></video></div>
-            <div class="card video-card depth-level-3"><video preload playsinline muted autoplay loop src="/assets/handmirror-demo-2.mp4"></video></div>
-            <div class="card depth-level-1 hero-card"></div>
-            <div class="card video-card depth-level-2"><video preload playsinline muted autoplay loop src="/assets/handmirror-demo-3.mp4"></video></div>
-            <div class="card video-card depth-level-2"><video preload playsinline muted autoplay loop src="/assets/handmirror-demo-1.mp4"></video></div>
-          </div>
-        </div>
-        <svg class="wave wave-bottom" width="4323" height="700" viewBox="0 0 4323 700" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4323 34.5566C4323 252.392 4225.5 548.808 3509.5 548.808C3135 548.808 3153.5 368.696 2564.5 393C2119.77 411.351 1139.99 506.534 733.498 548.808C327.002 591.082 0 561.739 0 561.739V700H4323C4323 700 4323 -183.279 4323 34.5566Z" fill="#060606"/>
-        </svg>
-      </div>
-
-      <!-- SPECIALTY 2: ACCOUNT FLIPS -->
-      <div class="section thwip" data-theme-color="rgb(6, 6, 6)">
-        <div class="main-content-wrapper">
-       
-          <div class="content">
-            <h2><span class="timestamp">Specialty</span><br />Precise Market Analysis</h2>
-            <p>A trade is only as good as the analysis behind it. I've developed a robust framework for decoding market behavior, layering technicals, sentiment, and structure.</p>
-            <p>Each piece of data is like a distinct signal. When multiple signals align, they create a harmony of confluence—a high-probability setup. This system filters out the noise, allowing me to act with confidence.</p>
-          </div>
-
-          <div class="showcase">
-            <div class="card depth-level-1"></div>
-            <div class="card depth-level-2"></div>
-            <div class="card depth-level-3"></div>
-            <div class="card depth-level-2"></div>
-            <div class="card depth-level-3"></div>
-            <div class="card depth-level-1 video-card"><video preload playsinline muted autoplay loop src="/assets/thwip-video.mp4" id="thwip-video"></video></div>
-          </div>
-        </div>
-        <svg class="wave wave-bottom" width="4323" height="700" viewBox="0 0 4323 700" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4.72978e-08 34.5567C-0.00398254 252.392 251.499 426.462 957.999 515.983C2043 640.319 1870.5 376.296 2459.5 400.6C2904.23 418.951 3183 506.534 3589.5 548.808C3996 591.082 4323 561.739 4323 561.739V700H4.72978e-08C4.72978e-08 700 0.00398264 -183.279 4.72978e-08 34.5567Z" fill="#faf9f6"/>
-        </svg>
-      </div>
-
-      <!-- SPECIALTY 3: PRECISE MARKET ANALYSIS -->
-      <div class="section netlify" data-theme-color="rgb(250, 249, 246)" style="background-color: #faf9f6;">
-        <div class="main-content-wrapper">
-
-   <div class="content">
-            <h2><span class="timestamp">Specialty</span><br />Account Flips</h2>
-            <p>The ultimate test of skill and psychological fortitude. This is the art of taking a small account and aggressively compounding it through a series of precise, high-conviction trades.</p>
-            <p>It requires cracking the market's code under pressure. While not a core strategy for all, it's a demonstration of what's possible with elite skill and calculated risk management.</p>
-          </div>
-          <div class="showcase">
-            <div class="card depth-level-2"></div>
-            <div class="card depth-level-3"></div>
-            <div class="card depth-level-1"></div>
-            <div class="card depth-level-2"></div>
-            <div class="card depth-level-3"></div>
-          </div>
-        </div>
-        <svg class="wave wave-bottom" width="4324" height="202" viewBox="0 0 4324 202" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0.996094 202V80.4186C0.996094 80.4186 202 -52.0911 743 24.5C1284 101.091 1884 24.5 2624 24.5C3364 24.5 4324 101.091 4324 101.091C4324 101.091 4324 202 4324 202H0.996094Z" fill="white"/>
-        </svg>
-      </div>
-
-
-        <div class="main-content-wrapper people-id-like-to-meet">
-          <div class="content">
-            <h3>Mentors & Inspirations</h3>
-            <p>As a trader and a student, I'm constantly learning from those who've mastered their craft. I've been fortunate to connect with some incredible minds, but the journey of learning never stops. Here are a few inspirations.</p>
-            <ul>
-                <li class="checked"><span class="tick"></span><a href="#">Mkoreanwwn</a></li>
-                <li class="checked"><span class="tick"></span><a href="#">Bien</a></li>
-                <li class="checked"><span class="tick"></span><a href="#">Mkadinali</a></li>
-                <li><span class="tick"></span><a href="#">You</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
-      <!-- NEW COMPACT FOOTER -->
-      <div class="footer-compact">
-        <div class="footer-socials-compact">
-          <a href="https://t.me/ceejaytrades_ke" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
-          <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
-          <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
-          <a href="https://github.com/Edwar-code/Portfolio" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/github.svg" alt="GitHub"/></a>
-        </div>
-        <p class="footer-copyright-compact">Copyleft © [what-year-is-this]</p>
-      </div>
-
     </div>
-    <img src="/assets/not-how-this-works.png" id="easterNope" class="easter not-how-this-works" />
+    <div class="custom-wave"></div>
   </div>
+
+  <!-- SPECIALTY 1: SNIPER ENTRIES -->
+  <div id="specialties" class="section handmirror" data-theme-color="rgb(234, 233, 234)">
+    <div class="main-content-wrapper">
+      <div class="content">
+        <h2><span class="timestamp">Specialty</span><br />Sniper Entries</h2>
+        <p>Patience, precision, and execution. My primary focus is identifying the exact moment the market is poised to move, entering with minimal drawdown and maximum potential.</p>
+        <p>Like a reflection, the charts show you what has happened. But true skill lies in seeing the reflection of what's *about* to happen. This is the core of my strategy—waiting for the perfect setup before pulling the trigger.</p>
+      </div>
+      <div class="showcase">
+        <div class="card video-card depth-level-3"><video preload playsinline muted autoplay loop src="/assets/handmirror-demo-4.mp4"></video></div>
+        <div class="card video-card depth-level-3"><video preload playsinline muted autoplay loop src="/assets/handmirror-demo-2.mp4"></video></div>
+        <div class="card depth-level-1 hero-card"></div>
+        <div class="card video-card depth-level-2"><video preload playsinline muted autoplay loop src="/assets/handmirror-demo-3.mp4"></video></div>
+        <div class="card video-card depth-level-2"><video preload playsinline muted autoplay loop src="/assets/handmirror-demo-1.mp4"></video></div>
+      </div>
+    </div>
+    <svg class="wave wave-bottom" width="4323" height="700" viewBox="0 0 4323 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4323 34.5566C4323 252.392 4225.5 548.808 3509.5 548.808C3135 548.808 3153.5 368.696 2564.5 393C2119.77 411.351 1139.99 506.534 733.498 548.808C327.002 591.082 0 561.739 0 561.739V700H4323C4323 700 4323 -183.279 4323 34.5566Z" fill="#060606"/>
+    </svg>
+  </div>
+
+  <!-- SPECIALTY 2: ACCOUNT FLIPS -->
+  <div class="section netlify" data-theme-color="rgb(6, 6, 6)" style="background-color: #060606;">
+    <div class="main-content-wrapper">
+      <div class="content" style="color: #faf9f6;">
+        <h2><span class="timestamp">Specialty</span><br />Account Flips</h2>
+        <p>The ultimate test of skill and psychological fortitude. This is the art of taking a small account and aggressively compounding it through a series of precise, high-conviction trades.</p>
+        <p>It requires cracking the market's code under pressure. While not a core strategy for all, it's a demonstration of what's possible with elite skill and calculated risk management.</p>
+      </div>
+      <div class="showcase">
+        <div class="card depth-level-2"></div>
+        <div class="card depth-level-3"></div>
+        <div class="card depth-level-1"></div>
+        <div class="card depth-level-2"></div>
+        <div class="card depth-level-3"></div>
+      </div>
+    </div>
+    <svg class="wave wave-bottom" width="4324" height="202" viewBox="0 0 4324 202" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0.996094 202V80.4186C0.996094 80.4186 202 -52.0911 743 24.5C1284 101.091 1884 24.5 2624 24.5C3364 24.5 4324 101.091 4324 101.091C4324 101.091 4324 202 4324 202H0.996094Z" fill="white"/>
+    </svg>
+  </div>
+
+  <div id="about" class="main-content-wrapper people-id-like-to-meet" style="background-color: white; padding: 60px 0;">
+    <div class="content">
+      <h3>Mentors & Inspirations</h3>
+      <p>As a trader and a student, I'm constantly learning from those who've mastered their craft. I've been fortunate to connect with some incredible minds, but the journey of learning never stops. Here are a few inspirations.</p>
+      <ul>
+        <li class="checked"><span class="tick"></span><a href="#">Mkoreanwwn</a></li>
+        <li class="checked"><span class="tick"></span><a href="#">Bien</a></li>
+        <li class="checked"><span class="tick"></span><a href="#">Mkadinali</a></li>
+        <li><span class="tick"></span><a href="#">You</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- NEW COMPACT FOOTER -->
+  <div id="contact" class="footer-compact">
+    <div class="footer-socials-compact">
+      <a href="https://t.me/ceejaytrades_ke" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
+      <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
+      <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
+      <a href="https://github.com/Edwar-code/Portfolio" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/github.svg" alt="GitHub"/></a>
+    </div>
+    <p class="footer-copyright-compact">Copyleft © [what-year-is-this]</p>
+  </div>
+</div>
+
+<img src="/assets/not-how-this-works.png" id="easterNope" class="easter not-how-this-works" />
