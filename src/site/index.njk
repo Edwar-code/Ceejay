@@ -94,7 +94,7 @@ layout: layouts/base.njk
     transform: scale(1.1);
   }
   .fab-main svg {
-    width: 30px; /* Adjusted size for the new icon */
+    width: 30px;
     height: 30px;
     fill: #FFFFFF;
   }
@@ -176,7 +176,7 @@ layout: layouts/base.njk
   </div>
 
   <!-- SPECIALTY 1: SNIPER ENTRIES -->
-  <div id="specialties" class="section handmirror" style="background-color: rgb(234, 233, 234);">
+  <div id="specialties" class="section handmirror" data-theme-color="rgb(234, 233, 234)" style="background-color: rgb(234, 233, 234);">
     <div class="main-content-wrapper">
       <div class="content">
         <h2><span class="timestamp">Specialty</span><br />Sniper Entries</h2>
@@ -192,14 +192,36 @@ layout: layouts/base.njk
       </div>
     </div>
     <svg class="wave wave-bottom" width="4323" height="700" viewBox="0 0 4323 700" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4323 34.5566C4323 252.392 4225.5 548.808 3509.5 548.808C3135 548.808 3153.5 368.696 2564.5 393C2119.77 411.351 1139.99 506.534 733.498 548.808C327.002 591.082 0 561.739 0 561.739V700H4323C4323 700 4323 -183.279 4323 34.5566Z" fill="#FFFFFF"/>
+      <path d="M4323 34.5566C4323 252.392 4225.5 548.808 3509.5 548.808C3135 548.808 3153.5 368.696 2564.5 393C2119.77 411.351 1139.99 506.534 733.498 548.808C327.002 591.082 0 561.739 0 561.739V700H4323C4323 700 4323 -183.279 4323 34.5566Z" fill="#060606"/>
     </svg>
   </div>
 
-  <!-- SPECIALTY 2: ACCOUNT FLIPS -->
-  <div class="section netlify" style="background-color: #060606;">
+  <!-- SPECIALTY 2: PRECISE MARKET ANALYSIS -->
+  <div class="section thwip" data-theme-color="rgb(6, 6, 6)" style="background-color: #060606;">
     <div class="main-content-wrapper">
       <div class="content" style="color: #faf9f6;">
+        <h2><span class="timestamp">Specialty</span><br />Precise Market Analysis</h2>
+        <p>A trade is only as good as the analysis behind it. I've developed a robust framework for decoding market behavior, layering technicals, sentiment, and structure.</p>
+        <p>Each piece of data is like a distinct signal. When multiple signals align, they create a harmony of confluence—a high-probability setup. This system filters out the noise, allowing me to act with confidence.</p>
+      </div>
+      <div class="showcase">
+        <div class="card depth-level-1"></div>
+        <div class="card depth-level-2"></div>
+        <div class="card depth-level-3"></div>
+        <div class="card depth-level-2"></div>
+        <div class="card depth-level-3"></div>
+        <div class="card depth-level-1 video-card"><video preload playsinline muted autoplay loop src="/assets/thwip-video.mp4" id="thwip-video"></video></div>
+      </div>
+    </div>
+    <svg class="wave wave-bottom" width="4323" height="700" viewBox="0 0 4323 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4.72978e-08 34.5567C-0.00398254 252.392 251.499 426.462 957.999 515.983C2043 640.319 1870.5 376.296 2459.5 400.6C2904.23 418.951 3183 506.534 3589.5 548.808C3996 591.082 4323 561.739 4323 561.739V700H4.72978e-08C4.72978e-08 700 0.00398264 -183.279 4.72978e-08 34.5567Z" fill="#faf9f6"/>
+    </svg>
+  </div>
+
+  <!-- SPECIALTY 3: ACCOUNT FLIPS -->
+  <div class="section netlify" data-theme-color="rgb(250, 249, 246)" style="background-color: #faf9f6;">
+    <div class="main-content-wrapper">
+      <div class="content">
         <h2><span class="timestamp">Specialty</span><br />Account Flips</h2>
         <p>The ultimate test of skill and psychological fortitude. This is the art of taking a small account and aggressively compounding it through a series of precise, high-conviction trades.</p>
         <p>It requires cracking the market's code under pressure. While not a core strategy for all, it's a demonstration of what's possible with elite skill and calculated risk management.</p>
@@ -252,7 +274,6 @@ layout: layouts/base.njk
     <a id="fab-whatsapp" href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" title="WhatsApp"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/whatsapp.svg" alt="WhatsApp"/></a>
   </div>
 
-  <!-- The main "Let's Chat" button with NEW icon -->
   <div class="fab-main">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,2H4A2,2,0,0,0,2,4V22L6,18H20A2,2,0,0,0,22,16V4A2,2,0,0,0,20,2ZM20,16H5.17L4,17.17V4H20Z"/></svg>
   </div>
