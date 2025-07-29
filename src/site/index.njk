@@ -88,9 +88,10 @@ layout: layouts/base.njk
   .footer-socials-compact a:hover img {
     filter: invert(1);
   }
-  /* Remove grayscale filter for TikTok icon */
+  /* Ensure TikTok icon is colored (no grayscale) */
   .footer-socials-compact a.tiktok img {
     filter: none;
+    fill: #000000; /* TikTok's primary black color */
   }
   .footer-copyright-compact {
     margin-top: 20px;
@@ -158,14 +159,15 @@ layout: layouts/base.njk
     height: 28px;
     filter: brightness(0) invert(1);
   }
-  /* Remove filter for TikTok icon in FAB */
+  /* Ensure TikTok icon in FAB is colored */
   #fab-tiktok img {
     filter: none;
+    fill: #000000; /* TikTok's primary black color */
   }
   #fab-whatsapp { background-color: #25D366; }
   #fab-telegram { background-color: #26A5E4; }
   #fab-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
-  #fab-tiktok { background-color: #000000; } /* Black background for TikTok */
+  #fab-tiktok { background-color: #000000; } /* Black background for TikTok FAB */
   
   .fab-container.is-active .fab-options a {
     animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
