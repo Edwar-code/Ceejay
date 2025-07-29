@@ -88,10 +88,9 @@ layout: layouts/base.njk
   .footer-socials-compact a:hover img {
     filter: invert(1);
   }
-  /* Ensure TikTok icon is colored (no grayscale) */
+  /* Ensure TikTok icon is colored (no filter applied) */
   .footer-socials-compact a.tiktok img {
     filter: none;
-    fill: #000000; /* TikTok's primary black color */
   }
   .footer-copyright-compact {
     margin-top: 20px;
@@ -162,7 +161,6 @@ layout: layouts/base.njk
   /* Ensure TikTok icon in FAB is colored */
   #fab-tiktok img {
     filter: none;
-    fill: #000000; /* TikTok's primary black color */
   }
   #fab-whatsapp { background-color: #25D366; }
   #fab-telegram { background-color: #26A5E4; }
@@ -331,7 +329,7 @@ layout: layouts/base.njk
     <div class="footer-socials-compact">
       <a href="https://t.me/ceejaytrades_ke" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
       <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
-      <a href="https://www.tiktok.com/@ceejay_trades?_r=1&_d=efe0he2d8bbf47&sec_uid=MS4wLjABAAAA0XVcmFlDjivN0ecQORTrNcmUCb4P3LkPdm4YSa33FZHseJqJu_zR-Z4Vlldo2pmj&share_author_id=7316969474808054789&sharer_language=en&source=h5_m&u_code=ebk86e880gdl15&timestamp=1753785232&user_id=7316969474808054789&sec_user_id=MS4wLjABAAAA0XVcmFlDjivN0ecQORTrNcmUCb4P3LkPdm4YSa33FZHseJqJu_zR-Z4Vlldo2pmj&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7526908988756526854&share_link_id=9f7213cf-9518-4966-bde1-3c730c18cd88&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb7360&social_share_type=5&enable_checksum=1" target="_blank" class="tiktok"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
+      <a href="https://www.tiktok.com/@ceejay_trades?_r=1&_d=efe0he2d8bbf47&sec_uid=MS4wLjABAAAA0XVcmFlDjivN0ecQORTrNcmUCb4P3LkPdm4YSa33FZHseJqJu_zR-Z4Vlldo2pmj&share_author_id=7316969474808054789&sharer_language=en&source=h5_m&u_code=ebk86e880gdl15&timestamp=1753785232&user_id=7316969474808054789&sec_user_id=MS4wLjABAAAA0XVcmFlDjivN0ecQORTrNcmUCb4P3LkPdm4YSa33FZHseJqJu_zR-Z4Vlldo2pmj&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7526908988756526854&share_link_id=9f7213cf-9518-4966-bde1-3c730c18cd88&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb7360&social_share_type=5&enable_checksum=1" target="_blank" class="tiktok"><img src="https://img.icons8.com/color/48/tiktok--v1.png" alt="TikTok"/></a>
     </div>
     <p class="footer-copyright-compact">Copyleft © 2025</p>
   </div>
@@ -340,7 +338,7 @@ layout: layouts/base.njk
 <!-- FLOATING ACTION BUTTON (FAB) FOR LIVE CHAT -->
 <div class="fab-container">
   <div class="fab-options">
-    <a id="fab-tiktok" href="https://www.tiktok.com/@ceejay_trades?_r=1&_d=efe0he2d8bbf47&sec_uid=MS4wLjABAAAA0XVcmFlDjivN0ecQORTrNcmUCb4P3LkPdm4YSa33FZHseJqJu_zR-Z4Vlldo2pmj&share_author_id=7316969474808054789&sharer_language=en&source=h5_m&u_code=ebk86e880gdl15&timestamp=1753785232&user_id=7316969474808054789&sec_user_id=MS4wLjABAAAA0XVcmFlDjivN0ecQORTrNcmUCb4P3LkPdm4YSa33FZHseJqJu_zR-Z4Vlldo2pmj&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7526908988756526854&share_link_id=9f7213cf-9518-4966-bde1-3c730c18cd88&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb7360&social_share_type=5&enable_checksum=1" target="_blank" title="TikTok"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
+    <a id="fab-tiktok" href="https://www.tiktok.com/@ceejay_trades?_r=1&_d=efe0he2d8bbf47&sec_uid=MS4wLjABAAAA0XVcmFlDjivN0ecQORTrNcmUCb4P3LkPdm4YSa33FZHseJqJu_zR-Z4Vlldo2pmj&share_author_id=7316969474808054789&sharer_language=en&source=h5_m&u_code=ebk86e880gdl15&timestamp=1753785232&user_id=7316969474808054789&sec_user_id=MS4wLjABAAAA0XVcmFlDjivN0ecQORTrNcmUCb4P3LkPdm4YSa33FZHseJqJu_zR-Z4Vlldo2pmj&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7526908988756526854&share_link_id=9f7213cf-9518-4966-bde1-3c730c18cd88&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb7360&social_share_type=5&enable_checksum=1" target="_blank" title="TikTok"><img src="https://img.icons8.com/color/48/tiktok--v1.png" alt="TikTok"/></a>
     <a id="fab-instagram" href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank" title="Instagram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
     <a id="fab-telegram" href="https://t.me/ceejaytrades_ke" target="_blank" title="Telegram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
     <a id="fab-whatsapp" href="https://wa.me/+254716297699" target="_blank" title="WhatsApp"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/whatsapp.svg" alt="WhatsApp"/></a>
