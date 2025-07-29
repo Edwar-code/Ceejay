@@ -4,7 +4,7 @@
   /* FIX: Increased z-index to lift the entire section and its wave */
   z-index: 2;
   margin-top: 0px;
-  margin-bottom:79px;
+  margin-bottom:90px;
   background: #060606;
   color: #fff;
 
@@ -15,7 +15,7 @@
   .wave-bottom {
     /* FIX: Consolidated wave positioning here for clarity */
     position: absolute;
-    bottom: -40px; /* Positions it at the very bottom */
+    bottom: -10px; /* Positions it at the very bottom */
     left: 0;
     width: 100%;
     height: auto;
