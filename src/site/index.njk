@@ -56,55 +56,57 @@ layout: layouts/base.njk
     object-fit: cover;
   }
 
-  /* --- SECTION & WAVE STYLES (UPDATED) --- */
-  .section {
+  /* --- CORE LAYOUT (UPDATED) --- */
+  .papa-wrapper {
     position: relative;
+    z-index: 1; /* Establishes a base stacking context */
+  }
+  .section {
+    position: relative; /* Crucial for positioning content and waves */
     display: flex;
     justify-content: center;
-    overflow: visible; /* Allows waves to show outside the section's bounds */
+    overflow: visible; /* Allows waves to bleed outside the element bounds */
   }
   .big-hero-six {
     padding-top: 180px;
   }
-  
-  /* CORE WAVE STYLES - ADDED */
+
+  /* --- Z-INDEX STACKING FIX --- */
+  /* This makes each section stack correctly on top of the next one */
+  #home { z-index: 5; }
+  #specialties { z-index: 4; }
+  .thwip { z-index: 3; }
+  .netlify { z-index: 2; }
+  .about-footer-section { z-index: 1; }
+
+  /* --- WAVE STYLES (UPDATED) --- */
   .wave {
     position: absolute;
-    left: 0;
     width: 100%;
-    z-index: 5; /* Ensures wave is above the next section's background but below its content */
+    left: 0;
+    z-index: 10; /* Ensures the wave is on top of its own section's content */
   }
   .wave-bottom {
-    bottom: -2px; /* Slight overlap to prevent rendering gaps */
+    bottom: -1px; /* Slight overlap to prevent rendering gaps */
   }
-  .wave-top {
-    top: -2px;
-  }
-
+  
   /* --- FOOTER --- */
   .footer-compact {
     background-color: #111;
     color: #666;
     padding: 25px 20px;
     text-align: center;
+    width: 100%;
   }
-  .footer-socials-compact a {
-    display: inline-block;
-    margin: 0 12px;
-  }
+  .footer-socials-compact a { display: inline-block; margin: 0 12px; }
   .footer-socials-compact img {
     width: 24px;
     height: 24px;
     filter: invert(0.5);
     transition: filter 0.3s ease;
   }
-  .footer-socials-compact a:hover img {
-    filter: invert(1);
-  }
-  .footer-copyright-compact {
-    margin-top: 20px;
-    font-size: 0.85em;
-  }
+  .footer-socials-compact a:hover img { filter: invert(1); }
+  .footer-copyright-compact { margin-top: 20px; font-size: 0.85em; }
 
   /* --- FLOATING ACTION BUTTON (FAB) --- */
   .fab-container {
@@ -125,14 +127,8 @@ layout: layouts/base.njk
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
   }
-  .fab-main:hover {
-    transform: scale(1.1);
-  }
-  .fab-main svg {
-    width: 30px;
-    height: 30px;
-    fill: #FFFFFF;
-  }
+  .fab-main:hover { transform: scale(1.1); }
+  .fab-main svg { width: 30px; height: 30px; fill: #FFFFFF; }
   .fab-options {
     position: absolute;
     bottom: 75px;
@@ -161,14 +157,8 @@ layout: layouts/base.njk
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .fab-options a:hover {
-    transform: scale(1.15);
-  }
-  .fab-options img {
-    width: 28px;
-    height: 28px;
-    filter: brightness(0) invert(1);
-  }
+  .fab-options a:hover { transform: scale(1.15); }
+  .fab-options img { width: 28px; height: 28px; filter: brightness(0) invert(1); }
   #fab-whatsapp { background-color: #25D366; }
   #fab-telegram { background-color: #26A5E4; }
   #fab-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
@@ -177,9 +167,7 @@ layout: layouts/base.njk
     0% { opacity: 0; transform: scale(0.5); }
     100% { opacity: 1; transform: scale(1); }
   }
-  .fab-container.is-active .fab-options a {
-    animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-  }
+  .fab-container.is-active .fab-options a { animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
   .fab-container.is-active .fab-options a:nth-child(1) { animation-delay: 0.1s; }
   .fab-container.is-active .fab-options a:nth-child(2) { animation-delay: 0.2s; }
   .fab-container.is-active .fab-options a:nth-child(3) { animation-delay: 0.3s; }
@@ -201,6 +189,7 @@ layout: layouts/base.njk
 </div>
 
 <div class="papa-wrapper">
+
   <!-- HERO SECTION -->
   <div id="home" class="section big-hero-six" data-theme-color="rgb(255, 255, 255)">
     <div class="background">
@@ -213,9 +202,9 @@ layout: layouts/base.njk
         <p>I am a student at The University of Nairobi, Fulltime Forex & Synthetics Trader, engineering strategies for market success.</p>
       </div>
     </div>
-    <!-- WAVE ADDED: Connects Hero to the first Specialty section -->
-    <svg class="wave wave-bottom" width="4323" height="250" viewBox="0 0 4323 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4323 149.091C4091.5 100.525 3848.5 186.994 3412 202.614C2750.36 226.291 2638.5 40.8657 2124.5 4.04682C1683.02 -27.5776 1127.5 135.797 721 159.38C314.504 182.963 0 128.418 0 128.418V250H4323C4323 250 4323 27.5687 4323 149.091Z" fill="rgb(234, 233, 234)"/>
+    <!-- THIS WAVE CONNECTS TO THE NEXT SECTION -->
+    <svg class="wave wave-bottom" width="4323" height="700" viewBox="0 0 4323 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4323 34.5566C4323 252.392 4225.5 548.808 3509.5 548.808C3135 548.808 3153.5 368.696 2564.5 393C2119.77 411.351 1139.99 506.534 733.498 548.808C327.002 591.082 0 561.739 0 561.739V700H4323C4323 700 4323 -183.279 4323 34.5566Z" fill="rgb(234, 233, 234)"/>
     </svg>
   </div>
 
@@ -283,9 +272,9 @@ layout: layouts/base.njk
     </svg>
   </div>
 
-  <!-- ABOUT & FOOTER CONTAINER SECTION -->
-  <div class="section" style="background-color: #FFFFFF; display: block; padding-top: 60px;">
-    <div id="about" class="main-content-wrapper people-id-like-to-meet">
+  <!-- ABOUT & FOOTER SECTION -->
+  <div id="about" class="section about-footer-section" style="background-color: #FFFFFF; flex-direction: column; align-items: center; padding-top: 60px;">
+    <div class="main-content-wrapper people-id-like-to-meet">
       <div class="content">
         <h3>Mentors & Inspirations</h3>
         <p>As a trader and a student, I'm constantly learning from those who've mastered their craft. I've been fortunate to connect with some incredible minds, but the journey of learning never stops. Here are a few inspirations.</p>
@@ -296,7 +285,6 @@ layout: layouts/base.njk
         </ul>
       </div>
     </div>
-    <!-- NEW COMPACT FOOTER -->
     <div id="contact" class="footer-compact">
       <div class="footer-socials-compact">
         <a href="https://t.me/ceejaytrades_ke" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
