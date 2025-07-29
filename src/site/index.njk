@@ -45,7 +45,7 @@ layout: layouts/base.njk
     left: 0;
     display: flex;
     justify-content: center;
-    z-index: 10;
+    z-index: 20; /* High z-index to be on top of everything */
   }
   .profile-photo {
     width: 120px;
@@ -56,38 +56,39 @@ layout: layouts/base.njk
     object-fit: cover;
   }
 
-  /* --- CORE LAYOUT (UPDATED) --- */
+  /* --- CORE LAYOUT & STACKING FIX --- */
   .papa-wrapper {
     position: relative;
-    z-index: 1; /* Establishes a base stacking context */
+    z-index: 1;
   }
   .section {
-    position: relative; /* Crucial for positioning content and waves */
+    position: relative;
     display: flex;
     justify-content: center;
-    overflow: visible; /* Allows waves to bleed outside the element bounds */
+    overflow: visible;
   }
   .big-hero-six {
     padding-top: 180px;
   }
-
-  /* --- Z-INDEX STACKING FIX --- */
-  /* This makes each section stack correctly on top of the next one */
-  #home { z-index: 5; }
-  #specialties { z-index: 4; }
-  .thwip { z-index: 3; }
-  .netlify { z-index: 2; }
-  .about-footer-section { z-index: 1; }
-
+  
+  /* Lifts content above the waves */
+  .main-content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%; /* Ensures it spans the full width for layout */
+    display: flex; /* Re-apply flex properties for centering */
+    justify-content: center;
+  }
+  
   /* --- WAVE STYLES (UPDATED) --- */
   .wave {
     position: absolute;
     width: 100%;
     left: 0;
-    z-index: 10; /* Ensures the wave is on top of its own section's content */
+    z-index: 1; /* Sits below content, but above the next section's background */
   }
   .wave-bottom {
-    bottom: -1px; /* Slight overlap to prevent rendering gaps */
+    bottom: -1px;
   }
   
   /* --- FOOTER --- */
@@ -202,8 +203,10 @@ layout: layouts/base.njk
         <p>I am a student at The University of Nairobi, Fulltime Forex & Synthetics Trader, engineering strategies for market success.</p>
       </div>
     </div>
-    <!-- THIS WAVE CONNECTS TO THE NEXT SECTION -->
-
+    <!-- WAVE ADDED BACK -->
+    <svg class="wave wave-bottom" width="4323" height="700" viewBox="0 0 4323 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4323 34.5566C4323 252.392 4225.5 548.808 3509.5 548.808C3135 548.808 3153.5 368.696 2564.5 393C2119.77 411.351 1139.99 506.534 733.498 548.808C327.002 591.082 0 561.739 0 561.739V700H4323C4323 700 4323 -183.279 4323 34.5566Z" fill="rgb(234, 233, 234)"/>
+    </svg>
   </div>
 
   <!-- SPECIALTY 1: SNIPER ENTRIES -->
@@ -227,7 +230,7 @@ layout: layouts/base.njk
     </svg>
   </div>
 
-
+  <!-- SPECIALTY 2: PRECISE MARKET ANALYSIS -->
   <div class="section thwip" data-theme-color="rgb(6, 6, 6)" style="background-color: #060606;">
     <div class="main-content-wrapper">
       <div class="content" style="color: #faf9f6;">
@@ -254,7 +257,7 @@ layout: layouts/base.njk
     <div class="main-content-wrapper">
       <div class="content">
         <h2><span class="timestamp">Specialty</span><br />Account Flips</h2>
-        <p>The ultimate test of skill and psychologicaal fortitude. This is the art of taking a small account and aggressively compounding it through a series of precise, high-conviction trades.</p>
+        <p>The ultimate test of skill and psychological fortitude. This is the art of taking a small account and aggressively compounding it through a series of precise, high-conviction trades.</p>
         <p>It requires cracking the market's code under pressure. While not a core strategy for all, it's a demonstration of what's possible with elite skill and calculated risk management.</p>
       </div>
       <div class="showcase">
@@ -272,7 +275,7 @@ layout: layouts/base.njk
 
   <!-- ABOUT & FOOTER SECTION -->
   <div id="about" class="section about-footer-section" style="background-color: #FFFFFF; flex-direction: column; align-items: center; padding-top: 60px;">
-    <div class="main-content-wrapper people-id-like-to-meet">
+    <div class="main-content-wrapper">
       <div class="content">
         <h3>Mentors & Inspirations</h3>
         <p>As a trader and a student, I'm constantly learning from those who've mastered their craft. I've been fortunate to connect with some incredible minds, but the journey of learning never stops. Here are a few inspirations.</p>
