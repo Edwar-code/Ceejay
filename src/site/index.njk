@@ -82,15 +82,21 @@ layout: layouts/base.njk
     width: 24px;
     height: 24px;
     filter: invert(0.5);
-    transition: filter 0.3s ease;
+    transition: all 0.3s ease;
   }
-  /* Adjusted TikTok icon size for better visual balance */
+  /* --- FIX: Restore original color and size for TikTok footer logo --- */
   .footer-socials-compact img[alt="TikTok"] {
+    filter: none; /* Removes the gray filter */
     width: 26px;
     height: 26px;
   }
   .footer-socials-compact a:hover img {
     filter: invert(1);
+    transform: scale(1.1);
+  }
+  /* Prevent the TikTok logo from inverting on hover */
+  .footer-socials-compact a:hover img[alt="TikTok"] {
+    filter: none;
   }
   .footer-copyright-compact {
     margin-top: 20px;
@@ -158,16 +164,21 @@ layout: layouts/base.njk
     height: 28px;
     filter: brightness(0) invert(1);
   }
+  /* --- FIX: Restore brand colors for FAB buttons, including TikTok --- */
   #fab-whatsapp { background-color: #25D366; }
   #fab-telegram { background-color: #26A5E4; }
   #fab-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+  #fab-tiktok { background-color: #000000; }
   
   .fab-container.is-active .fab-options a {
     animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   }
+  /* --- FIX: Restore animation delay for all 4 icons --- */
   .fab-container.is-active .fab-options a:nth-child(1) { animation-delay: 0.1s; }
   .fab-container.is-active .fab-options a:nth-child(2) { animation-delay: 0.2s; }
   .fab-container.is-active .fab-options a:nth-child(3) { animation-delay: 0.3s; }
+  .fab-container.is-active .fab-options a:nth-child(4) { animation-delay: 0.4s; }
+
   @keyframes pop-in {
     0% { opacity: 0; transform: scale(0.5); }
     100% { opacity: 1; transform: scale(1); }
@@ -323,7 +334,8 @@ layout: layouts/base.njk
     <div class="footer-socials-compact">
       <a href="https://t.me/ceejaytrades_ke" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
       <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
-      <a href="https://www.tiktok.com/@ceejaytrades" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
+      <!-- --- FIX: Updated TikTok link --- -->
+      <a href="https://www.tiktok.com/@ceejay_trades?_t=ZM-8yROSwF7YLY&_r=1" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
     </div>
     <p class="footer-copyright-compact">Copyleft © 2025</p>
   </div>
@@ -335,6 +347,8 @@ layout: layouts/base.njk
     <a id="fab-instagram" href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank" title="Instagram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
     <a id="fab-telegram" href="https://t.me/ceejaytrades_ke" target="_blank" title="Telegram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
     <a id="fab-whatsapp" href="https://wa.me/+254716297699" target="_blank" title="WhatsApp"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/whatsapp.svg" alt="WhatsApp"/></a>
+    <!-- --- FIX: Restored TikTok icon to FAB with updated link --- -->
+    <a id="fab-tiktok" href="https://www.tiktok.com/@ceejay_trades?_t=ZM-8yROSwF7YLY&_r=1" target="_blank" title="TikTok"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
   </div>
   <div class="fab-main">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,2H4A2,2,0,0,0,2,4V22L6,18H20A2,2,0,0,0,22,16V4A2,2,0,0,0,20,2ZM20,16H5.17L4,17.17V4H20Z"/></svg>
