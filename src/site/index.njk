@@ -1,211 +1,213 @@
 ---
 layout: layouts/base.njk
----
-<style>
- .navbar-wrapper {
-  position: fixed;
-  width: 100%;
-  top: 20px;
-  z-index: 1001;
-  display: flex;
-  justify-content: center;
-}
-.navbar {
-  display: flex;
-  padding: 8px 12px;
-  background-color: rgba(180, 175, 165, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 9999px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.navbar a {
-  scroll-behavior: smooth;
-  cursor: pointer;
-  padding: 10px 20px;
-  border-radius: 9999px;
-  color: #007AFF;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-.navbar a:hover {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: #f7f3e9;
-}
-.profile-photo-container {
-  position: absolute;
-  width: 100%;
-  top: 85px;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  z-index: 10;
-}
-.profile-photo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 5px solid #FFFFFF;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-  object-fit: cover;
-}
-.section {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  overflow: visible;
-  padding: 80px 0;
-}
-.big-hero-six {
-  padding-top: 180px;
-}
-.wave-bottom {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: auto;
-  bottom: -2px;
-}
-.footer-compact {
-  background-color: #111;
-  color: #666;
-  padding: 25px 20px;
-  text-align: center;
-}
-.footer-socials-compact a {
-  display: inline-block;
-  margin: 0 12px;
-}
-.footer-socials-compact img {
-  width: 24px;
-  height: 24px;
-  filter: invert(0.5);
-  transition: filter 0.3s ease;
-}
-.footer-socials-compact a:hover img {
-  filter: invert(1);
-}
-.footer-copyright-compact {
-  margin-top: 20px;
-  font-size: 0.85em;
-}
-.fab-container {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 1000;
-  cursor: pointer;
-}
-.fab-main {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #007AFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
-}
-.fab-main:hover {
-  transform: scale(1.1);
-}
-.fab-main svg {
-  width: 30px;
-  height: 30px;
-  fill: #FFFFFF;
-}
-.fab-options {
-  position: absolute;
-  bottom: 75px;
-  right: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-}
-.fab-container.is-active .fab-options {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-.fab-options a {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.fab-options a:hover {
-  transform: scale(1.15);
-}
-.fab-options img {
-  width: 28px;
-  height: 28px;
-  filter: brightness(0) invert(1);
-}
-#fab-whatsapp { background-color: #25D366; }
-#fab-telegram { background-color: #26A5E4; }
-#fab-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
-.fab-container.is-active .fab-options a {
-  animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-.fab-container.is-active .fab-options a:nth-child(1) { animation-delay: 0.1s; }
-.fab-container.is-active .fab-options a:nth-child(2) { animation-delay: 0.2s; }
-.fab-container.is-active .fab-options a:nth-child(3) { animation-delay: 0.3s; }
-@keyframes pop-in {
-  0% { opacity: 0; transform: scale(0.5); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-/* --- Responsive styles for Account Flips section --- */
-@media (max-width: 768px) {
-  .netlify .showcase {
-    /* Adjust the container to better center the smaller cards */
-    transform: scale(0.8);
-    margin-top: -50px;
-  }
-
-  .netlify .showcase .card {
-    /* Reduce the size and adjust positioning of the cards on mobile */
-    width: 200px; /* Smaller width */
-    height: 120px; /* Smaller height */
-  }
-
-  .netlify .showcase .card:nth-child(1) {
-    top: -60px;
-    left: -100px;
-  }
-
-  .netlify .showcase .card:nth-child(2) {
-    top: -120px;
-    left: 50px;
-  }
-
-  .netlify .showcase .card:nth-child(3) {
+---<style>
+  .navbar-wrapper {
+    position: fixed;
+    width: 100%;
     top: 20px;
-    left: -150px;
+    z-index: 1001; /* Must be on top */
+    display: flex;
+    justify-content: center;
+  }
+  .navbar {
+    display: flex;
+    padding: 8px 12px;
+    background-color: rgba(180, 175, 165, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 9999px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .navbar a {
+    scroll-behavior: smooth;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    color: #007AFF;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  .navbar a:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #f7f3e9;
+  }
+  .profile-photo-container {
+    position: absolute; /* Lifts the element out of the document flow */
+    width: 100%;
+    top: 85px; /* Distance from the top of the page */
+    left: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 10; /* Places it on top of the hero video */
+  }
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid #FFFFFF;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+  }
+  .section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+    padding: 80px 0; /* Added default padding for sections */
+  }
+  .big-hero-six {
+    /* This padding pushes the text down to make room for the overlapping photo */
+    padding-top: 180px; 
+  }
+  .wave-bottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: auto;
+    bottom: -2px;
+  }
+  .footer-compact {
+    background-color: #111;
+    color: #666;
+    padding: 25px 20px;
+    text-align: center;
+  }
+  .footer-socials-compact a {
+    display: inline-block;
+    margin: 0 12px;
+  }
+  .footer-socials-compact img {
+    width: 24px;
+    height: 24px;
+    filter: invert(0.5);
+    transition: filter 0.3s ease;
+  }
+  .footer-socials-compact a:hover img {
+    filter: invert(1);
+  }
+  .footer-copyright-compact {
+    margin-top: 20px;
+    font-size: 0.85em;
+  }
+  .fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    cursor: pointer;
+  }
+  .fab-main {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #007AFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  .fab-main:hover {
+    transform: scale(1.1);
+  }
+  .fab-main svg {
+    width: 30px;
+    height: 30px;
+    fill: #FFFFFF;
+  }
+  .fab-options {
+    position: absolute;
+    bottom: 75px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  }
+  .fab-container.is-active .fab-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .fab-options a {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .fab-options a:hover {
+    transform: scale(1.15);
+  }
+  .fab-options img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1);
+  }
+  #fab-whatsapp { background-color: #25D366; }
+  #fab-telegram { background-color: #26A5E4; }
+  #fab-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+  
+  .fab-container.is-active .fab-options a {
+    animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  .fab-container.is-active .fab-options a:nth-child(1) { animation-delay: 0.1s; }
+  .fab-container.is-active .fab-options a:nth-child(2) { animation-delay: 0.2s; }
+  .fab-container.is-active .fab-options a:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
   }
 
-  .netlify .showcase .card:nth-child(4) {
-    top: 80px;
-    left: 20px;
-  }
+  /* --- Responsive styles for Account Flips section --- */
+  @media (max-width: 768px) {
+    .netlify .showcase {
+      /* Adjusted scale and margin to accommodate larger cards */
+      transform: scale(0.9);
+      margin-top: -30px;
+    }
 
-  .netlify .showcase .card:nth-child(5) {
-    top: -30px;
-    left: 120px;
+    .netlify .showcase .card {
+      /* Enlarged card dimensions (1.4x bigger) */
+      width: 280px;  /* 200px * 1.4 */
+      height: 168px; /* 120px * 1.4 */
+    }
+
+    /* Repositioned cards to fit the new, larger size */
+    .netlify .showcase .card:nth-child(1) {
+      top: -85px;
+      left: -140px;
+    }
+
+    .netlify .showcase .card:nth-child(2) {
+      top: -170px;
+      left: 70px;
+    }
+
+    .netlify .showcase .card:nth-child(3) {
+      top: 30px;
+      left: -210px;
+    }
+
+    .netlify .showcase .card:nth-child(4) {
+      top: 110px;
+      left: 30px;
+    }
+
+    .netlify .showcase .card:nth-child(5) {
+      top: -40px;
+      left: 170px;
+    }
   }
-}
 </style>
 <!-- NAVBAR -->
 <div class="navbar-wrapper">
