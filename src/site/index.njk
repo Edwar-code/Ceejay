@@ -84,13 +84,17 @@ layout: layouts/base.njk
     height: 24px;
     filter: invert(0.5);
     transition: filter 0.3s ease;
+    object-fit: contain; /* Ensure icons scale properly */
   }
   .footer-socials-compact a:hover img {
     filter: invert(1);
   }
-  /* Ensure TikTok icon is colored (no filter applied) */
+  /* Ensure TikTok icon is colored and matches other icon sizes */
   .footer-socials-compact a.tiktok img {
     filter: none;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
   }
   .footer-copyright-compact {
     margin-top: 20px;
@@ -157,10 +161,14 @@ layout: layouts/base.njk
     width: 28px;
     height: 28px;
     filter: brightness(0) invert(1);
+    object-fit: contain; /* Ensure icons scale properly */
   }
-  /* Ensure TikTok icon in FAB is colored */
+  /* Ensure TikTok icon in FAB is colored and matches other icon sizes */
   #fab-tiktok img {
     filter: none;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
   }
   #fab-whatsapp { background-color: #25D366; }
   #fab-telegram { background-color: #26A5E4; }
