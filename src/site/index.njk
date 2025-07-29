@@ -3,11 +3,12 @@ layout: layouts/base.njk
 ---
 
 <style>
+  /* --- GENERAL & NAVBAR --- */
   .navbar-wrapper {
     position: fixed;
     width: 100%;
     top: 20px;
-    z-index: 1001; /* Must be on top */
+    z-index: 1001;
     display: flex;
     justify-content: center;
   }
@@ -36,15 +37,15 @@ layout: layouts/base.njk
     color: #f7f3e9;
   }
 
-  /* --- CORRECTED PROFILE PHOTO STYLES --- */
+  /* --- PROFILE PHOTO --- */
   .profile-photo-container {
-    position: absolute; /* Lifts the element out of the document flow */
+    position: absolute;
     width: 100%;
-    top: 85px; /* Distance from the top of the page */
+    top: 85px;
     left: 0;
     display: flex;
     justify-content: center;
-    z-index: 10; /* Places it on top of the hero video */
+    z-index: 10;
   }
   .profile-photo {
     width: 120px;
@@ -55,23 +56,32 @@ layout: layouts/base.njk
     object-fit: cover;
   }
 
+  /* --- SECTION & WAVE STYLES (UPDATED) --- */
   .section {
     position: relative;
     display: flex;
     justify-content: center;
-    overflow: visible;
+    overflow: visible; /* Allows waves to show outside the section's bounds */
   }
-  
-  /* --- HERO SECTION PADDING FIX --- */
   .big-hero-six {
-    /* This padding pushes the text down to make room for the overlapping photo */
-    padding-top: 180px; 
+    padding-top: 180px;
   }
   
+  /* CORE WAVE STYLES - ADDED */
+  .wave {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 5; /* Ensures wave is above the next section's background but below its content */
+  }
   .wave-bottom {
-    bottom: -2px;
+    bottom: -2px; /* Slight overlap to prevent rendering gaps */
+  }
+  .wave-top {
+    top: -2px;
   }
 
+  /* --- FOOTER --- */
   .footer-compact {
     background-color: #111;
     color: #666;
@@ -96,6 +106,7 @@ layout: layouts/base.njk
     font-size: 0.85em;
   }
 
+  /* --- FLOATING ACTION BUTTON (FAB) --- */
   .fab-container {
     position: fixed;
     bottom: 30px;
@@ -162,16 +173,16 @@ layout: layouts/base.njk
   #fab-telegram { background-color: #26A5E4; }
   #fab-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
   
+  @keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+  }
   .fab-container.is-active .fab-options a {
     animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   }
   .fab-container.is-active .fab-options a:nth-child(1) { animation-delay: 0.1s; }
   .fab-container.is-active .fab-options a:nth-child(2) { animation-delay: 0.2s; }
   .fab-container.is-active .fab-options a:nth-child(3) { animation-delay: 0.3s; }
-  @keyframes pop-in {
-    0% { opacity: 0; transform: scale(0.5); }
-    100% { opacity: 1; transform: scale(1); }
-  }
 </style>
 
 <!-- NAVBAR -->
@@ -190,6 +201,7 @@ layout: layouts/base.njk
 </div>
 
 <div class="papa-wrapper">
+  <!-- HERO SECTION -->
   <div id="home" class="section big-hero-six" data-theme-color="rgb(255, 255, 255)">
     <div class="background">
       <video preload playsinline muted autoplay poster="/assets/poster.jpg" src="/assets/background-video.mp4" fetchpriority="high"></video>
@@ -201,7 +213,10 @@ layout: layouts/base.njk
         <p>I am a student at The University of Nairobi, Fulltime Forex & Synthetics Trader, engineering strategies for market success.</p>
       </div>
     </div>
-    <div class="custom-wave"></div>
+    <!-- WAVE ADDED: Connects Hero to the first Specialty section -->
+    <svg class="wave wave-bottom" width="4323" height="250" viewBox="0 0 4323 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4323 149.091C4091.5 100.525 3848.5 186.994 3412 202.614C2750.36 226.291 2638.5 40.8657 2124.5 4.04682C1683.02 -27.5776 1127.5 135.797 721 159.38C314.504 182.963 0 128.418 0 128.418V250H4323C4323 250 4323 27.5687 4323 149.091Z" fill="rgb(234, 233, 234)"/>
+    </svg>
   </div>
 
   <!-- SPECIALTY 1: SNIPER ENTRIES -->
@@ -268,27 +283,28 @@ layout: layouts/base.njk
     </svg>
   </div>
 
-
-  <div id="about" class="main-content-wrapper people-id-like-to-meet" style="background-color: #FFFFFF; padding: 60px 0;">
-    <div class="content">
-      <h3>Mentors & Inspirations</h3>
-      <p>As a trader and a student, I'm constantly learning from those who've mastered their craft. I've been fortunate to connect with some incredible minds, but the journey of learning never stops. Here are a few inspirations.</p>
-      <ul>
-        <li class="checked"><span class="tick"></span><a href="#">Vidollar</a></li>
-        <li class="checked"><span class="tick"></span><a href="#">Habbyfx</a></li>
-        <li><span class="tick"></span><a href="#">You</a></li>
-      </ul>
+  <!-- ABOUT & FOOTER CONTAINER SECTION -->
+  <div class="section" style="background-color: #FFFFFF; display: block; padding-top: 60px;">
+    <div id="about" class="main-content-wrapper people-id-like-to-meet">
+      <div class="content">
+        <h3>Mentors & Inspirations</h3>
+        <p>As a trader and a student, I'm constantly learning from those who've mastered their craft. I've been fortunate to connect with some incredible minds, but the journey of learning never stops. Here are a few inspirations.</p>
+        <ul>
+          <li class="checked"><span class="tick"></span><a href="#">Vidollar</a></li>
+          <li class="checked"><span class="tick"></span><a href="#">Habbyfx</a></li>
+          <li><span class="tick"></span><a href="#">You</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-
-  <!-- NEW COMPACT FOOTER -->
-  <div id="contact" class="footer-compact">
-    <div class="footer-socials-compact">
-      <a href="https://t.me/ceejaytrades_ke" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
-      <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
-      <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
+    <!-- NEW COMPACT FOOTER -->
+    <div id="contact" class="footer-compact">
+      <div class="footer-socials-compact">
+        <a href="https://t.me/ceejaytrades_ke" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
+        <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
+        <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
+      </div>
+      <p class="footer-copyright-compact">Copyleft © 2025</p>
     </div>
-    <p class="footer-copyright-compact">Copyleft © 2025</p>
   </div>
 </div>
 
@@ -301,7 +317,6 @@ layout: layouts/base.njk
     <a id="fab-telegram" href="https://t.me/ceejaytrades_ke" target="_blank" title="Telegram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
     <a id="fab-whatsapp" href="https://wa.me/+254716297699" target="_blank" title="WhatsApp"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/whatsapp.svg" alt="WhatsApp"/></a>
   </div>
-
   <div class="fab-main">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,2H4A2,2,0,0,0,2,4V22L6,18H20A2,2,0,0,0,22,16V4A2,2,0,0,0,20,2ZM20,16H5.17L4,17.17V4H20Z"/></svg>
   </div>

@@ -1,7 +1,7 @@
 .spatialty-coffee {
   position: relative;
   z-index: 2;
-  background: #DEC19A;
+  background: #f7f7f7;
   color: #2D1005;
 
   @media (max-width: 975px) {
