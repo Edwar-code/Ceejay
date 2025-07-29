@@ -2,11 +2,11 @@
 	font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
 	position: relative;
 	z-index: 1;
-	background: #F4D7C7;
-	color: #5A3730;
+	background: #ffffff;
+	color: #ffffff;
 
 	.tint-color {
-		color: #AF3B52;
+		color: #ffffff;
 	}
 
   	.wave-bottom {
