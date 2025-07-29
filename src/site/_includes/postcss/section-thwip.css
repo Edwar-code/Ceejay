@@ -15,7 +15,7 @@
   .wave-bottom {
     /* FIX: Consolidated wave positioning here for clarity */
     position: absolute;
-    bottom: -2px; /* Positions it at the very bottom */
+    bottom: -50px; /* Positions it at the very bottom */
     left: 0;
     width: 100%;
     height: auto;
