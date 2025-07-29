@@ -54,18 +54,8 @@ layout: layouts/base.njk
     position: relative;
     display: flex;
     justify-content: center;
-    overflow: hidden; /* Changed from visible to hidden */
-    padding: 16px 0; /* Added default padding for sections */
-  }
-  /* Centering the main content wrapper on all screens */
-  .main-content-wrapper {
-    width: 100%;
-    max-width: 1200px; /* Adjust as needed for your design */
-    margin: 0 auto;
-    padding: 0 20px; /* Adds some spacing on the sides */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    overflow: visible;
+    padding:16px 0; /* Added default padding for sections */
   }
   .big-hero-six {
     /* This padding pushes the text down to make room for the overlapping photo */
@@ -94,10 +84,10 @@ layout: layouts/base.njk
     filter: invert(0.5);
     transition: filter 0.3s ease;
   }
-  /* Specific rule for TikTok icon size */
-  .footer-socials-compact .tiktok-icon {
-    width: 24px;
-    height: 24px;
+  /* Adjusted TikTok icon size for better visual balance */
+  .footer-socials-compact img[alt="TikTok"] {
+    width: 26px;
+    height: 26px;
   }
   .footer-socials-compact a:hover img {
     filter: invert(1);
@@ -106,7 +96,6 @@ layout: layouts/base.njk
     margin-top: 20px;
     font-size: 0.85em;
   }
-  /* Adjusted FAB container for better positioning */
   .fab-container {
     position: fixed;
     bottom: 30px;
@@ -184,38 +173,44 @@ layout: layouts/base.njk
     100% { opacity: 1; transform: scale(1); }
   }
 
-  /* --- Responsive styles for all screens --- */
+  /* --- Responsive styles for Account Flips section --- */
   @media (max-width: 768px) {
-    .main-content-wrapper {
-      flex-direction: column;
-    }
     .netlify .showcase {
+      /* Adjusted scale and margin to accommodate larger cards */
       transform: scale(1.2);
       margin-top: -27px;
     }
+
     .netlify .showcase .card {
-      width: 200px;
-      height: 176px;
+      /* Enlarged card dimensions (1.4x bigger) */
+      width: 200px;  /* 200px * 1.4 */
+      height: 176px; /* 120px * 1.4 */
     }
+
+    /* Repositioned cards to fit the new, larger size */
     .netlify .showcase .card:nth-child(1) {
       top: -130px;
-      left: -15px;
+         left:-15px;
     }
+
     .netlify .showcase .card:nth-child(2) {
       top: -150px;
-      left: 130px;
+      left:130px;
     }
+
     .netlify .showcase .card:nth-child(3) {
       top: 10px;
       left: 0px;
     }
+
     .netlify .showcase .card:nth-child(4) {
-      top: 80px;
-      left: 175px;
+      top:80px;
+      left:175px;
     }
+
     .netlify .showcase .card:nth-child(5) {
       top: -18px;
-      left: 175px;
+      left:175px;
     }
   }
 </style>
@@ -288,12 +283,12 @@ layout: layouts/base.njk
     </svg>
   </div>
   <!-- SPECIALTY 3: ACCOUNT FLIPS -->
-  <div class="section netlify" data-theme-color="rgb(222, 193, 154)" style="background-color: #b0c0e6;">
+  <div class="section netlify" data-theme-color="rgb(222, 193, 154)" style="background-color:  #b0c0e6;">
     <div class="main-content-wrapper">
       <div class="content">
         <h2><span class="timestamp">Specialty</span><br />Account Flips</h2>
         <p>The ultimate test of skill and psychological fortitude. This is the art of taking a small account and aggressively compounding it through a series of precise, high-conviction trades.</p>
-        <p>It requires cracking the market's code under pressure. While not a core strategy for all, it's a demonstration of what's possible with elite skills and calculated risk management.</p>
+        <p>It requires cracking the market's code under pressure. While not a core strategy for all, it's a demonstration of what's possible with elite skill and calculated risk management.</p>
       </div>
       <div class="showcase">
         <div class="card depth-level-2"></div>
@@ -328,13 +323,13 @@ layout: layouts/base.njk
     <div class="footer-socials-compact">
       <a href="https://t.me/ceejaytrades_ke" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
       <a href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
-      <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok" class="tiktok-icon"/></a>
+      <a href="https://www.tiktok.com/@ceejaytrades" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
     </div>
     <p class="footer-copyright-compact">Copyleft © 2025</p>
   </div>
 </div>
 <img src="/assets/not-how-this-works.png" id="easterNope" class="easter not-how-this-works" />
-<!-- FLOATING ACTION BUTTON (FAB)  LIVE CHAT -->
+<!-- FLOATING ACTION BUTTON (FAB) FOR LIVE CHAT -->
 <div class="fab-container">
   <div class="fab-options">
     <a id="fab-instagram" href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank" title="Instagram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
