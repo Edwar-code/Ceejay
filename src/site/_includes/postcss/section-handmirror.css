@@ -1,7 +1,7 @@
 .handmirror {
   position: relative;
   z-index: 2;
-  margin-top:50px;
+  margin-bottom:-50px;
   background: #EAE9EA;
   color: #202124;
 
