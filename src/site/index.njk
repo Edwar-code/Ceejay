@@ -68,6 +68,42 @@ layout: layouts/base.njk
     height: auto;
     bottom: -2px;
   }
+  
+  /* --- ADDED: Button Styles --- */
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 28px;
+    border-radius: 9999px;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1em; /* Adds some space above the button */
+  }
+  .btn-cta:hover {
+    transform: translateY(-3px);
+  }
+  .btn-cta img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+  }
+  .btn-telegram {
+    background-color: #26A5E4;
+    box-shadow: 0 4px 15px rgba(38, 165, 228, 0.3);
+  }
+  .btn-telegram:hover {
+    box-shadow: 0 8px 20px rgba(38, 165, 228, 0.5);
+  }
+
+
   .footer-compact {
     background-color: #111;
     color: #666;
@@ -192,6 +228,11 @@ layout: layouts/base.njk
       width: 200px;  /* 200px * 1.4 */
       height: 176px; /* 120px * 1.4 */
     }
+    
+    /* ADDED: Fix for potential button overlap on mobile */
+    .netlify .content {
+      padding-bottom: 250px; 
+    }
 
     /* Repositioned cards to fit the new, larger size */
     .netlify .showcase .card:nth-child(1) {
@@ -295,6 +336,13 @@ layout: layouts/base.njk
         <h2><span class="timestamp">Specialty</span><br />Account Flips</h2>
         <p>The ultimate test of skill and psychological fortitude. This is the art of taking a small account and aggressively compounding it through a series of precise, high-conviction trades.</p>
         <p>It requires cracking the market's code under pressure. While not a core strategy for all, it's a demonstration of what's possible with elite skill and calculated risk management.</p>
+        
+        <!-- ADDED: Telegram Button -->
+        <a href="https://t.me/ceejaytradess" target="_blank" class="btn-cta btn-telegram">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram Icon"/>
+          <span>Join Telegram Channel</span>
+        </a>
+
       </div>
       <div class="showcase">
         <div class="card depth-level-2"></div>
