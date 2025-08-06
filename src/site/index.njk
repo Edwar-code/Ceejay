@@ -55,7 +55,7 @@ layout: layouts/base.njk
     display: flex;
     justify-content: center;
     overflow: visible;
-    padding:16px 0; /* Added default padding for sections */
+    padding: 16px 0; /* Added default padding for sections */
   }
   .big-hero-six {
     /* This padding pushes the text down to make room for the overlapping photo */
@@ -68,7 +68,22 @@ layout: layouts/base.njk
     height: auto;
     bottom: -2px;
   }
+  
+  /* --- Typography & Content Enhancements --- */
+  .content p {
+      margin-bottom: 1.25em; /* Adds spacing between paragraphs for readability */
+      line-height: 1.6;
+  }
 
+  .content blockquote {
+      border-left: 3px solid #DEC19A; /* Accent color from the theme */
+      margin: 2em 0;
+      padding: 10px 25px;
+      font-style: italic;
+      color: #b0b0b0; /* Slightly lighter than main text for emphasis */
+      font-size: 1.05em;
+  }
+  
   /* --- ADDED: Button Styles --- */
   .btn-cta {
     display: inline-flex;
@@ -103,6 +118,13 @@ layout: layouts/base.njk
     box-shadow: 0 8px 20px rgba(38, 165, 228, 0.5);
   }
 
+  /* --- Image Card Styling --- */
+  .showcase .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures images fill the card without distortion */
+      border-radius: inherit; /* Inherits the card's rounded corners */
+  }
 
   .footer-compact {
     background-color: #111;
@@ -358,26 +380,28 @@ layout: layouts/base.njk
     </svg>
   </div>
 
-  <!-- NEW PROJECT SECTION -->
-  <div id="projects" class="section thwip" data-theme-color="rgb(6, 6, 6)" style="background-color: #060606;">
+  <!-- CORRECTLY PLACED AND STYLED PROJECT SECTION -->
+  <div id="projects" class="section thwip" data-theme-color="rgb(6, 6, 6)" style="background-color: #060606; padding-top: 60px;">
     <div class="main-content-wrapper">
-        <div class="content" style="color: #faf9f6;">
-            <h2><span class="timestamp">Project</span><br />🐺 The Rise of the Nairobi Underdog – Ceejay FX</h2>
-            <p>In the heart of Nairobi, between lecture halls and late-night charts, a young student named Ceejay was crafting something powerful.</p>
-            <p>While others chased quick money, he studied the markets like a language — learning how price moves, how banks manipulate, and how patience pays. He didn’t have a huge trading account. No fancy setup. Just a smartphone, a dream, and skills sharpened by discipline.</p>
-            <p>Where most saw noise, he saw opportunity. Where most feared losses, he used them as lessons. Each trade was a step forward — one pip at a time. People doubted him. “You’re just a student,” they said. But Ceejay smiled. He had records, strategies, and results to back it up.</p>
-            <p>And now, he’s not just trading for himself — he’s opening the door for others to invest, even with the smallest capital. Not because it’s easy, but because he knows how to make smart moves in a tough game.</p>
-            <blockquote>“I’m not here to sell you hype. I’m here to show you results. I trade with precision, manage risk, and grow accounts — no matter how small. If you’re willing to risk a little, I’ll show you how I turn that into something real. I’m not lucky. I’m skilled. And I’m just getting started.”</blockquote>
-        </div>
-        <div class="showcase">
-            <!-- Image Placeholders -->
-            <div class="card depth-level-1"><img src="path/to/your/image1.jpg" alt="Project Image 1"></div>
-            <div class="card depth-level-2"><img src="path/to/your/image2.jpg" alt="Project Image 2"></div>
-            <div class="card depth-level-3"><img src="path/to/your/image3.jpg" alt="Project Image 3"></div>
-        </div>
+      <div class="content" style="color: #faf9f6;">
+        <h2><span class="timestamp">Project</span><br />🐺 The Rise of the Nairobi Underdog</h2>
+        <p>In the heart of Nairobi, between lecture halls and late-night charts, a young student named Ceejay was crafting something powerful.</p>
+        <p>While others chased quick money, he studied the markets like a language — learning how price moves, how banks manipulate, and how patience pays. He didn’t have a huge trading account. No fancy setup. Just a smartphone, a dream, and skills sharpened by discipline.</p>
+        <p>Where most saw noise, he saw opportunity. Where most feared losses, he used them as lessons. Each trade was a step forward — one pip at a time.</p>
+        <p>People doubted him. “You’re just a student,” they said. But Ceejay smiled. He had records, strategies, and results to back it up.</p>
+        
+        <!-- Enhanced Blockquote for Ceejay's message -->
+        <blockquote>“I’m not here to sell you hype. I’m here to show you results. I trade with precision, manage risk, and grow accounts — no matter how small. If you’re willing to risk a little, I’ll show you how I turn that into something real. I’m not lucky. I’m skilled. And I’m just getting started.”</blockquote>
+      </div>
+      <div class="showcase">
+          <!-- Image Placeholders - Replace with your image paths -->
+          <div class="card depth-level-1"><img src="/assets/portfolio1.jpg" alt="Project Image 1"></div>
+          <div class="card depth-level-2"><img src="/assets/portfolio2.jpg" alt="Project Image 2"></div>
+          <div class="card depth-level-3"><img src="/assets/portfolio3.jpg" alt="Project Image 3"></div>
+      </div>
     </div>
     <svg class="wave wave-bottom" width="4323" height="700" viewBox="0 0 4323 700" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4.72978e-08 34.5567C-0.00398254 252.392 251.499 426.462 957.999 515.983C2043 640.319 1870.5 376.296 2459.5 400.6C2904.23 418.951 3183 506.534 3589.5 548.808C3996 591.082 4323 561.739 4323 561.739V700H4.72978e-08C4.72978e-08 700 0.00398264 -183.279 4.72978e-08 34.5567Z" fill="#DEC19A"/>
+      <path d="M4.72978e-08 34.5567C-0.00398254 252.392 251.499 426.462 957.999 515.983C2043 640.319 1870.5 376.296 2459.5 400.6C2904.23 418.951 3183 506.534 3589.5 548.808C3996 591.082 4323 561.739 4323 561.739V700H4.72978e-08C4.72978e-08 700 0.00398264 -183.279 4.72978e-08 34.5567Z" fill="#FFFFFF"/>
     </svg>
   </div>
 
@@ -411,7 +435,7 @@ layout: layouts/base.njk
 <div class="fab-container">
   <div class="fab-options">
     <a id="fab-instagram" href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank" title="Instagram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
-    <a id="fab-telegram" href="https://t.me/ceejaytradess" target="_blank" title="Telegram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
+    <a id="fab-telegram" href="https.t.me/ceejaytradess" target="_blank" title="Telegram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
     <a id="fab-whatsapp" href="https://wa.me/+254716297699" target="_blank" title="WhatsApp"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/whatsapp.svg" alt="WhatsApp"/></a>
     <a id="fab-tiktok" href="https://www.tiktok.com/@ceejay_trades?_t=ZM-8yROSwF7YLY&_r=1" target="_blank" title="TikTok"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
   </div>
