@@ -9,6 +9,18 @@ layout: layouts/base.njk
     display: flex;
     justify-content: center;
   }
+  /* Center the showcase on larger screens */
+.parent-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Align the showcase to the left on smaller screens */
+@media (max-width: 768px) {
+  .parent-container {
+    justify-content: flex-start;
+  }
+}
   .navbar {
     display: flex;
     padding: 8px 12px;
@@ -54,10 +66,11 @@ layout: layouts/base.njk
     position: relative;
     display: flex;
     justify-content: center;
-    overflow: hidden; /* Changed to hidden to better contain elements */
-    padding: 16px 0;
+    overflow: visible;
+    padding: 16px 0; /* Added default padding for sections */
   }
   .big-hero-six {
+    /* This padding pushes the text down to make room for the overlapping photo */
     padding-top: 180px;
   }
   .wave-bottom {
@@ -70,20 +83,20 @@ layout: layouts/base.njk
   
   /* --- Typography & Content Enhancements --- */
   .content p {
-      margin-bottom: 1.25em;
+      margin-bottom: 1.25em; /* Adds spacing between paragraphs for readability */
       line-height: 1.6;
   }
 
   .content blockquote {
-      border-left: 3px solid #007AFF;
+      border-left: 3px solid #007AFF; /* Using a primary blue for quotes */
       margin: 2em 0;
       padding: 10px 25px;
       font-style: italic;
-      color: #555;
+      color: #555; /* Dark grey for readability on a white background */
       font-size: 1.05em;
   }
   
-  /* --- Button Styles --- */
+  /* --- ADDED: Button Styles --- */
   .btn-cta {
     display: inline-flex;
     align-items: center;
@@ -99,7 +112,7 @@ layout: layouts/base.njk
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 1em;
+    margin-top: 1em; /* Adds some space above the button */
   }
   .btn-cta:hover {
     transform: translateY(-3px);
@@ -121,8 +134,8 @@ layout: layouts/base.njk
   .showcase .card img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      border-radius: inherit;
+      object-fit: cover; /* Ensures images fill the card without distortion */
+      border-radius: inherit; /* Inherits the card's rounded corners */
   }
 
   .footer-compact {
@@ -138,13 +151,15 @@ layout: layouts/base.njk
   .footer-socials-compact img {
     width: 24px;
     height: 24px;
-    filter: invert(0.5);
+    filter: invert(0.5); /* Default state for all icons: Makes them grey */
     transition: filter 0.3s ease, transform 0.3s ease;
   }
+  /* --- FIX: Only adjust the size of the TikTok icon, let it inherit the filter --- */
   .footer-socials-compact img[alt="TikTok"] {
     width: 26px;
     height: 26px;
   }
+  /* On hover, ALL icons will now turn white */
   .footer-socials-compact a:hover img {
     filter: invert(1);
     transform: scale(1.1);
@@ -213,8 +228,9 @@ layout: layouts/base.njk
   .fab-options img {
     width: 28px;
     height: 28px;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1); /* Makes icons inside the FAB white */
   }
+  /* Brand colors for FAB buttons */
   #fab-whatsapp { background-color: #25D366; }
   #fab-telegram { background-color: #26A5E4; }
   #fab-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
@@ -235,31 +251,14 @@ layout: layouts/base.njk
 
   /* --- Responsive Media Queries --- */
   @media (max-width: 768px) {
-    /* --- General Mobile Section Adjustments --- */
-    .section {
-        padding: 40px 16px; /* Give sections more breathing room on mobile */
-    }
-    .main-content-wrapper {
-        flex-direction: column;
-    }
-    .content, .showcase {
-        width: 100% !important;
-        position: relative !important;
-        left: 0 !important;
-        top: 0 !important;
-        transform: none !important;
-    }
-
     /* --- Account Flips Section (Mobile) --- */
     .netlify .showcase {
-      position: absolute !important; /* Keep this one special */
-      transform: scale(1.2) !important;
+      transform: scale(1.2);
       margin-top: -27px;
     }
     .netlify .showcase .card {
-      width: 200px !important;
-      height: 176px !important;
-      position: absolute !important;
+      width: 200px;
+      height: 176px;
     }
     .netlify .content {
       padding-bottom: 250px;
@@ -270,25 +269,27 @@ layout: layouts/base.njk
     .netlify .showcase .card:nth-child(4) { top:80px; left:175px; }
     .netlify .showcase .card:nth-child(5) { top: -18px; left:175px; }
 
-    /* --- Projects Section (Mobile) --- */
+    /* --- Projects (Thwip) Section (Mobile) --- */
     #projects .main-content-wrapper {
-        padding-bottom: 60px; /* Add space at the bottom of the section */
+        flex-direction: column; /* Stack content and showcase vertically */
     }
     #projects .showcase {
+        position: relative; /* Override absolute positioning */
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Allow items to wrap into a grid */
         justify-content: center;
-        gap: 15px;
-        margin-top: 40px;
+        gap: 15px; /* Space between the cards */
+        width: 100%;
+        margin-top: 40px; /* Space between text and images */
+        height: auto;
+        transform: none; /* Reset desktop transforms */
     }
     #projects .showcase .card {
-        width: 45% !important;
-        height: 150px !important;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        position: relative !important;
-    }
-    #projects .wave-bottom {
-        display: none; /* Hide the wave on mobile to prevent overlap issues */
+        position: static; /* Override absolute positioning */
+        width: 45%; /* Two cards per row */
+        height: 150px; /* Adjust height for mobile */
+        transform: none; /* Reset desktop transforms */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Add a subtle shadow */
     }
   }
 </style>
@@ -369,6 +370,7 @@ layout: layouts/base.njk
         <p>The ultimate test of skill and psychological fortitude. This is the art of taking a small account and aggressively compounding it through a series of precise, high-conviction trades.</p>
         <p>It requires cracking the market's code under pressure. While not a core strategy for all, it's a demonstration of what's possible with elite skill and calculated risk management.</p>
 
+        <!-- ADDED: Telegram Button -->
         <a href="https://t.me/ceejaytradess" target="_blank" class="btn-cta btn-telegram">
           <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram Icon"/>
           <span>Join Telegram Channel</span>
@@ -384,34 +386,36 @@ layout: layouts/base.njk
       </div>
     </div>
     <svg class="wave wave-bottom" width="4324" height="202" viewBox="0 0 4324 202" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0.996094 202V80.4186C0.996094 80.4186 202 -52.0911 743 24.5C1284 101.091 1884 24.5 2624 24.5C3364 24.5 4324 101.091 4324 101.091C4324 101.091 4324 202 4324 202H0.996094Z" fill="#FFFFFF"/>
+      <path d="M0.996094 202V80.4186C0.996094 80.4186 202 -52.0911 743 24.5C1284 101.091 1884 24.5 2624 24.5C3364 24.5 4324 101.091 4324 101.091C4324 101.091 4324 202 4324 202H0.996094Z" fill="#060606"/>
     </svg>
   </div>
 
-  <!-- PROJECTS SECTION (FULLY RESPONSIVE) -->
-  <div id="projects" class="section thwip" style="background-color: #FFFFFF;">
+  <!-- PROJECTS SECTION (NOW FULLY RESPONSIVE) -->
+  <div id="projects" class="section thwip" style="background-color: #FFFFFF; padding: 60px 16px;">
     <div class="main-content-wrapper">
       <div class="content" style="color: #000000;">
         <h2><span class="timestamp">Project</span><br />🐺 The Rise of the Nairobi Underdog</h2>
         <p>In the heart of Nairobi, between lecture halls and late-night charts, a young student named Ceejay was crafting something powerful.</p>
         <p>While others chased quick money, he studied the markets like a language — learning how price moves, how banks manipulate, and how patience pays. He didn’t have a huge trading account. No fancy setup. Just a smartphone, a dream, and skills sharpened by discipline.</p>
+        <p>Where most saw noise, he saw opportunity. Where most feared losses, he used them as lessons. Each trade was a step forward — one pip at a time.</p>
         
+        <!-- Enhanced Blockquote for Ceejay's message -->
         <blockquote>“I’m not here to sell you hype. I’m here to show you results. I trade with precision, manage risk, and grow accounts — no matter how small. If you’re willing to risk a little, I’ll show you how I turn that into something real. I’m not lucky. I’m skilled. And I’m just getting started.”</blockquote>
       </div>
-      <div class="showcase">
-          <div class="card"><img src="/assets/portfolio1.jpg" alt="Project Image 1"></div>
-          <div class="card"><img src="/assets/portfolio2.jpg" alt="Project Image 2"></div>
-          <div class="card"><img src="/assets/portfolio3.jpg" alt="Project Image 3"></div>
-          <div class="card"><img src="/assets/portfolio4.jpg" alt="Project Image 4"></div>
-      </div>
+ <div class="parent-container">
+  <div class="showcase">
+    <!-- Image Placeholders - Replace with your image paths -->
+    <div class="card"><img src="/assets/portfolio1.jpg" alt="Project Image 1"></div>
+    <div class="card"><img src="/assets/portfolio2.jpg" alt="Project Image 2"></div>
+    <div class="card"><img src="/assets/portfolio3.jpg" alt="Project Image 3"></div>
+    <div class="card"><img src="/assets/portfolio4.jpg" alt="Project Image 4"></div>
+  </div>
+</div>
     </div>
-    <svg class="wave wave-bottom" width="4323" height="700" viewBox="0 0 4323 700" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4.72978e-08 34.5567C-0.00398254 252.392 251.499 426.462 957.999 515.983C2043 640.319 1870.5 376.296 2459.5 400.6C2904.23 418.951 3183 506.534 3589.5 548.808C3996 591.082 4323 561.739 4323 561.739V700H4.72978e-08C4.72978e-08 700 0.00398264 -183.279 4.72978e-08 34.5567Z" fill="#060606"/>
-    </svg>
   </div>
 
-  <!-- MENTORS & INSPIRATIONS -->
-  <div id="about" class="section" style="background-color: #060606; color: #faf9f6;">
+  <!-- MENTORS & INSPIRATIONS (FIXED STRUCTURE) -->
+  <div id="about" class="section" style="background-color: #FFFFFF; padding: 60px 0;">
     <div class="main-content-wrapper people-id-like-to-meet">
       <div class="content">
         <h3>Mentors & Inspirations</h3>
@@ -425,7 +429,7 @@ layout: layouts/base.njk
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- NEW COMPACT FOOTER -->
   <div id="contact" class="footer-compact">
     <div class="footer-socials-compact">
       <a href="https://t.me/ceejaytradess" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
@@ -436,11 +440,11 @@ layout: layouts/base.njk
   </div>
 </div>
 <img src="/assets/not-how-this-works.png" id="easterNope" class="easter not-how-this-works" />
-<!-- FLOATING ACTION BUTTON -->
+<!-- FLOATING ACTION BUTTON (FAB) FOR LIVE CHAT -->
 <div class="fab-container">
   <div class="fab-options">
     <a id="fab-instagram" href="https://www.instagram.com/_ceejay.___?igsh=MWU5anluYmR6dWt1cw==" target="_blank" title="Instagram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/instagram.svg" alt="Instagram"/></a>
-    <a id="fab-telegram" href="https://t.me/ceejaytradess" target="_blank" title="Telegram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
+    <a id="fab-telegram" href="https.t.me/ceejaytradess" target="_blank" title="Telegram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/telegram.svg" alt="Telegram"/></a>
     <a id="fab-whatsapp" href="https://wa.me/+254716297699" target="_blank" title="WhatsApp"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/whatsapp.svg" alt="WhatsApp"/></a>
     <a id="fab-tiktok" href="https://www.tiktok.com/@ceejay_trades?_t=ZM-8yROSwF7YLY&_r=1" target="_blank" title="TikTok"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/tiktok.svg" alt="TikTok"/></a>
   </div>
