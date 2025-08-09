@@ -257,30 +257,29 @@ layout: layouts/base.njk
     .netlify .main-content-wrapper {
         flex-direction: column; /* Stack content and showcase vertically */
     }
+    .netlify .content {
+        padding-bottom: 0; /* REMOVED the giant void space */
+    }
     .netlify .showcase {
         position: relative;
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Arrange cards in a grid */
         justify-content: center;
-        gap: 15px;
+        gap: 15px; /* Space between cards */
         width: 100%;
         margin-top: 40px; /* Space between text and images */
         height: auto;
         transform: none; /* Reset desktop transforms */
     }
     .netlify .showcase .card {
-        position: static; /* Override absolute positioning */
+        position: static; /* Let cards flow naturally in the grid */
         width: 45%; /* Two cards per row */
         height: 150px; /* Adjust height for mobile */
-        transform: none; /* Reset desktop transforms */
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        /* Reset any absolute positioning from desktop styles */
+        /* Reset any transforms or positioning from desktop view */
+        transform: none;
         top: auto;
         left: auto;
-    }
-    /* Remove the problematic padding that caused the large gap */
-    .netlify .content {
-      padding-bottom: 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     /* --- Projects (Thwip) Section (Mobile) --- */
