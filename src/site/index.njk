@@ -253,23 +253,35 @@ layout: layouts/base.njk
 
   /* --- Responsive Media Queries --- */
   @media (max-width: 768px) {
-    /* --- Account Flips Section (Mobile) --- */
+    /* --- [FIXED] Account Flips Section (Mobile) --- */
+    .netlify .main-content-wrapper {
+        flex-direction: column; /* Stack content and showcase vertically */
+    }
     .netlify .showcase {
-      transform: scale(1.2);
-      margin-top: -27px;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+        margin-top: 40px; /* Space between text and images */
+        height: auto;
+        transform: none; /* Reset desktop transforms */
     }
     .netlify .showcase .card {
-      width: 200px;
-      height: 176px;
+        position: static; /* Override absolute positioning */
+        width: 45%; /* Two cards per row */
+        height: 150px; /* Adjust height for mobile */
+        transform: none; /* Reset desktop transforms */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        /* Reset any absolute positioning from desktop styles */
+        top: auto;
+        left: auto;
     }
+    /* Remove the problematic padding that caused the large gap */
     .netlify .content {
-      padding-bottom: 250px;
+      padding-bottom: 0;
     }
-    .netlify .showcase .card:nth-child(1) { top: -130px; left:-15px; }
-    .netlify .showcase .card:nth-child(2) { top: -150px; left:130px; }
-    .netlify .showcase .card:nth-child(3) { top: 10px; left: 0px; }
-    .netlify .showcase .card:nth-child(4) { top:80px; left:175px; }
-    .netlify .showcase .card:nth-child(5) { top: -18px; left:175px; }
 
     /* --- Projects (Thwip) Section (Mobile) --- */
     #projects .main-content-wrapper {
